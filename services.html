@@ -571,56 +571,113 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="logo"><span>e</span>Auditoroffice</a>
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="#" class="dropdown-toggle">New Business</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Start a Business</a></li>
-                                <li><a href="#">Business Registration</a></li>
-                                <li><a href="#"> Compliance Setup</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#" class="dropdown-toggle">Manage Your Business</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Bookkeeping</a></li>
-                                <li><a href="#">Financial Reporting</a></li>
-                                <li><a href="#">Business Advisory</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#" class="dropdown-toggle">GST</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">GST Registration</a></li>
-                                <li><a href="#">GST Filing</a></li>
-                                <li><a href="#">GST Consultation</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#" class="dropdown-toggle">Income Tax</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Income Tax Services</a></li>
-                                <li><a href="#">Income Tax Returns Filings</a></li>
-                                <li><a href="#">Form 15CA & Form 15CB</a></li>
-                                <li><a href="#">NRI Income Tax Planning & Filing</a></li>
-                                <li><a href="#">NSDL Services</a></li>
-                                <li><a href="#">PAN Application</a></li>
-                                <li><a href="#">TAN Application</a></li>
-                                <li><a href="#">Tax Deducted at Source</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </nav>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-e">e</span><span class="logo-auditor">Auditor</span><span class="logo-office">office</span>
+                </a>
             </div>
+            
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <li class="nav-item dropdown">
+                        <a href="service.html#new-business" class="nav-link">New Business <span class="dropdown-icon">▼</span></a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-content">
+                                <a href="services/company-registration.html" class="dropdown-item">
+                                    <div class="dropdown-item-title">Company Registration</div>
+                                    <div class="dropdown-item-description">Register your business as Private Limited, LLP, OPC, or Partnership</div>
+                                </a>
+                                <a href="services/gst-registration.html" class="dropdown-item">
+                                    <div class="dropdown-item-title">GST Registration</div>
+                                    <div class="dropdown-item-description">Get your business registered under Goods and Services Tax</div>
+                                </a>
+                                <a href="services/trademark-registration.html" class="dropdown-item">
+                                    <div class="dropdown-item-title">Trademark Registration</div>
+                                    <div class="dropdown-item-description">Protect your brand identity with trademark registration</div>
+                                </a>
+                                <a href="services/msme-registration.html" class="dropdown-item">
+                                    <div class="dropdown-item-title">MSME Registration</div>
+                                    <div class="dropdown-item-description">Register as a Micro, Small, or Medium Enterprise</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Manage Your Business <span class="dropdown-icon">▼</span></a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-content">
+                                <a href="services/accounting.html" class="dropdown-item">
+                                    <div class="dropdown-item-title">Accounting Services</div>
+                                    <div class="dropdown-item-description">Professional bookkeeping and accounting services</div>
+                                </a>
+                                <a href="services/compliance.html" class="dropdown-item">
+                                    <div class="dropdown-item-title">Compliance Management</div>
+                                    <div class="dropdown-item-description">Stay compliant with all regulatory requirements</div>
+                                </a>
+                                <a href="services/annual-filings.html" class="dropdown-item">
+                                    <div class="dropdown-item-title">Annual Filings</div>
+                                    <div class="dropdown-item-description">Timely filing of annual returns and documents</div>
+                                </a>
+                                <a href="services/advisory.html" class="dropdown-item">
+                                    <div class="dropdown-item-title">Business Advisory</div>
+                                    <div class="dropdown-item-description">Expert advice for business growth and optimization</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">GST <span class="dropdown-icon">▼</span></a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-content">
+                                <a href="services/gst-registration.html" class="dropdown-item">
+                                    <div class="dropdown-item-title">GST Registration</div>
+                                    <div class="dropdown-item-description">Get registered under GST quickly and easily</div>
+                                </a>
+                                <a href="services/gst-filing.html" class="dropdown-item">
+                                    <div class="dropdown-item-title">GST Filing</div>
+                                    <div class="dropdown-item-description">Regular GST return filing services</div>
+                                </a>
+                                <a href="services/gst-advisory.html" class="dropdown-item">
+                                    <div class="dropdown-item-title">GST Advisory</div>
+                                    <div class="dropdown-item-description">Expert advice on GST compliance and optimization</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Income Tax <span class="dropdown-icon">▼</span></a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-content">
+                                <a href="services/income-tax-filing.html" class="dropdown-item">
+                                    <div class="dropdown-item-title">Income Tax Filing</div>
+                                    <div class="dropdown-item-description">Individual and business income tax return filing</div>
+                                </a>
+                                <a href="services/tds-filing.html" class="dropdown-item">
+                                    <div class="dropdown-item-title">TDS Filing</div>
+                                    <div class="dropdown-item-description">Timely filing of Tax Deducted at Source returns</div>
+                                </a>
+                                <a href="services/tax-planning.html" class="dropdown-item">
+                                    <div class="dropdown-item-title">Tax Planning</div>
+                                    <div class="dropdown-item-description">Strategic tax planning to optimize your tax liability</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-button" aria-label="Toggle menu">
+                <span class="menu-icon"></span>
+            </button>
         </div>
-    </header>
 
     <!-- Hero Section -->
     <section class="hero">
