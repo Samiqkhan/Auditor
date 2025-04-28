@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - eAuditoroffice</title>
     <style>
-        /* CSS remains unchanged */
+        /* CSS from original services.html */
         * {
             margin: 0;
             padding: 0;
@@ -36,7 +36,7 @@
             padding: 0 15px;
         }
 
-        .header-content {
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -53,17 +53,22 @@
             color: #2dd4bf;
         }
 
-        nav ul {
+        .desktop-nav ul {
             display: flex;
             list-style: none;
         }
 
-        nav ul li {
+        .nav-list {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-item {
             margin-left: 20px;
             position: relative;
         }
 
-        nav ul li a {
+        .nav-link {
             text-decoration: none;
             color: #666;
             font-weight: 500;
@@ -72,12 +77,11 @@
             display: inline-block;
         }
 
-        nav ul li a:hover {
+        .nav-link:hover {
             color: #2dd4bf;
         }
 
-        .dropdown-toggle::after {
-            content: "▼";
+        .dropdown-icon {
             font-size: 10px;
             margin-left: 5px;
             vertical-align: middle;
@@ -95,24 +99,122 @@
             z-index: 101;
         }
 
-        .dropdown-menu li {
-            margin: 0;
+        .dropdown:hover .dropdown-menu {
+            display: block;
         }
 
-        .dropdown-menu li a {
+        .dropdown-content a {
             padding: 10px 15px;
             display: block;
             color: #666;
             font-weight: normal;
+            text-decoration: none;
         }
 
-        .dropdown-menu li a:hover {
+        .dropdown-content a:hover {
             background-color: #f8f9fa;
             color: #2dd4bf;
         }
 
-        nav ul li:hover .dropdown-menu {
+        .dropdown-item-title {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .dropdown-item-description {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .menu-icon {
             display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            position: relative;
+        }
+
+        .menu-icon::before,
+        .menu-icon::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            left: 0;
+        }
+
+        .menu-icon::before {
+            top: -8px;
+        }
+
+        .menu-icon::after {
+            top: 8px;
+        }
+
+        .mobile-menu {
+            display: none;
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-menu-item a,
+        .mobile-dropdown-button {
+            display: block;
+            padding: 10px 15px;
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .mobile-dropdown-button {
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .mobile-dropdown-icon {
+            font-size: 10px;
+            margin-left: 5px;
+        }
+
+        .mobile-dropdown-content {
+            display: none;
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+        }
+
+        .mobile-dropdown-content.active {
+            display: block;
+        }
+
+        .mobile-dropdown-content a {
+            padding: 8px 15px;
+            font-size: 14px;
         }
 
         .hero {
@@ -529,30 +631,12 @@
         }
 
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-            }
-
-            .logo {
-                margin-bottom: 15px;
-            }
-
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            nav ul li {
-                margin: 0 10px 10px;
-            }
-
-            .dropdown-menu {
-                position: static;
-                box-shadow: none;
+            .desktop-nav {
                 display: none;
-                min-width: auto;
-                margin-top: 10px;
-                background-color: #f8f9fa;
+            }
+
+            .mobile-menu-button {
+                display: block;
             }
 
             .hero-text h1 {
@@ -582,85 +666,20 @@
             <nav class="desktop-nav">
                 <ul class="nav-list">
                     <li class="nav-item dropdown">
-                        <a href="service.html#new-business" class="nav-link">New Business <span class="dropdown-icon">▼</span></a>
+                        <a href="services.html" class="nav-link">Services <span class="dropdown-icon">▼</span></a>
                         <div class="dropdown-menu">
                             <div class="dropdown-content">
-                                <a href="services/company-registration.html" class="dropdown-item">
-                                    <div class="dropdown-item-title">Company Registration</div>
-                                    <div class="dropdown-item-description">Register your business as Private Limited, LLP, OPC, or Partnership</div>
+                                <a href="services.html#new-business" class="dropdown-item">
+                                    <div class="dropdown-item-title">New Business</div>
+                                    <div class="dropdown-item-description">Register your business with ease</div>
                                 </a>
-                                <a href="services/gst-registration.html" class="dropdown-item">
-                                    <div class="dropdown-item-title">GST Registration</div>
-                                    <div class="dropdown-item-description">Get your business registered under Goods and Services Tax</div>
+                                <a href="services.html#gst" class="dropdown-item">
+                                    <div class="dropdown-item-title">GST</div>
+                                    <div class="dropdown-item-description">GST registration and filing services</div>
                                 </a>
-                                <a href="services/trademark-registration.html" class="dropdown-item">
-                                    <div class="dropdown-item-title">Trademark Registration</div>
-                                    <div class="dropdown-item-description">Protect your brand identity with trademark registration</div>
-                                </a>
-                                <a href="services/msme-registration.html" class="dropdown-item">
-                                    <div class="dropdown-item-title">MSME Registration</div>
-                                    <div class="dropdown-item-description">Register as a Micro, Small, or Medium Enterprise</div>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link">Manage Your Business <span class="dropdown-icon">▼</span></a>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-content">
-                                <a href="services/accounting.html" class="dropdown-item">
-                                    <div class="dropdown-item-title">Accounting Services</div>
-                                    <div class="dropdown-item-description">Professional bookkeeping and accounting services</div>
-                                </a>
-                                <a href="services/compliance.html" class="dropdown-item">
-                                    <div class="dropdown-item-title">Compliance Management</div>
-                                    <div class="dropdown-item-description">Stay compliant with all regulatory requirements</div>
-                                </a>
-                                <a href="services/annual-filings.html" class="dropdown-item">
-                                    <div class="dropdown-item-title">Annual Filings</div>
-                                    <div class="dropdown-item-description">Timely filing of annual returns and documents</div>
-                                </a>
-                                <a href="services/advisory.html" class="dropdown-item">
-                                    <div class="dropdown-item-title">Business Advisory</div>
-                                    <div class="dropdown-item-description">Expert advice for business growth and optimization</div>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link">GST <span class="dropdown-icon">▼</span></a>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-content">
-                                <a href="services/gst-registration.html" class="dropdown-item">
-                                    <div class="dropdown-item-title">GST Registration</div>
-                                    <div class="dropdown-item-description">Get registered under GST quickly and easily</div>
-                                </a>
-                                <a href="services/gst-filing.html" class="dropdown-item">
-                                    <div class="dropdown-item-title">GST Filing</div>
-                                    <div class="dropdown-item-description">Regular GST return filing services</div>
-                                </a>
-                                <a href="services/gst-advisory.html" class="dropdown-item">
-                                    <div class="dropdown-item-title">GST Advisory</div>
-                                    <div class="dropdown-item-description">Expert advice on GST compliance and optimization</div>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link">Income Tax <span class="dropdown-icon">▼</span></a>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-content">
-                                <a href="services/income-tax-filing.html" class="dropdown-item">
-                                    <div class="dropdown-item-title">Income Tax Filing</div>
-                                    <div class="dropdown-item-description">Individual and business income tax return filing</div>
-                                </a>
-                                <a href="services/tds-filing.html" class="dropdown-item">
-                                    <div class="dropdown-item-title">TDS Filing</div>
-                                    <div class="dropdown-item-description">Timely filing of Tax Deducted at Source returns</div>
-                                </a>
-                                <a href="services/tax-planning.html" class="dropdown-item">
-                                    <div class="dropdown-item-title">Tax Planning</div>
-                                    <div class="dropdown-item-description">Strategic tax planning to optimize your tax liability</div>
+                                <a href="services.html#income-tax" class="dropdown-item">
+                                    <div class="dropdown-item-title">Income Tax</div>
+                                    <div class="dropdown-item-description">Income tax filing and planning</div>
                                 </a>
                             </div>
                         </div>
@@ -678,6 +697,29 @@
                 <span class="menu-icon"></span>
             </button>
         </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <div class="container">
+                <div class="mobile-menu-item">
+                    <button class="mobile-dropdown-button">
+                        Services <span class="mobile-dropdown-icon">▼</span>
+                    </button>
+                    <div class="mobile-dropdown-content">
+                        <a href="services.html#new-business">New Business</a>
+                        <a href="services.html#gst">GST</a>
+                        <a href="services.html#income-tax">Income Tax</a>
+                    </div>
+                </div>
+                <div class="mobile-menu-item">
+                    <a href="about.html">About Us</a>
+                </div>
+                <div class="mobile-menu-item">
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -816,7 +858,6 @@
         </div>
     </section>
 
-    
     <!-- Form Section -->
     <section class="form-section" id="form-section">
         <div class="container">
@@ -890,7 +931,43 @@
         </div>
     </section>
 
-    <!-- Footer section remains unchanged -->
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>eAuditor Office</h3>
+                    <p>Enabling entrepreneurs to stay legally compliant with comprehensive business services.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html#new-business">New Business</a></li>
+                        <li><a href="services.html#gst">GST</a></li>
+                        <li><a href="services.html#income-tax">Income Tax</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>123 Business Avenue, Tech Park, Bangalore - 560001</li>
+                        <li>+91 98765 43210</li>
+                        <li>info@eauditoroffice.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 eAuditor Office. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Service data
@@ -937,7 +1014,7 @@
                 el.classList.remove('active');
             });
             document.getElementById(category + '-subcategories').classList.add('active');
-            event.target.classList.add('active');
+            document.querySelector(`.category-tab[onclick="showCategory('${category}')"]`).classList.add('active');
         }
 
         // Show the form when a service is clicked
@@ -1008,45 +1085,14 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Mobile menu toggle for dropdown
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.innerWidth <= 768) {
-                const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-                
-                dropdownToggles.forEach(toggle => {
-                    toggle.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const dropdownMenu = this.nextElementSibling;
-                        
-                        if (dropdownMenu.style.display === 'block') {
-                            dropdownMenu.style.display = 'none';
-                        } else {
-                            document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                                menu.style.display = 'none';
-                            });
-                            dropdownMenu.style.display = 'block';
-                        }
-                    });
-                });
-            }
-
-            // Form submission event
-            document.getElementById('service-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                submitFormData();
-            });
-        });
-
         // Submit form data to Google Sheets
         function submitFormData() {
-            // Show loading indicator
             document.getElementById('service-form').style.display = 'none';
             document.getElementById('loading-indicator').style.display = 'block';
             document.getElementById('success-message').style.display = 'none';
             document.getElementById('error-message').style.display = 'none';
             document.getElementById('error-details').innerHTML = '';
             
-            // Get form data
             const formData = new FormData();
             formData.append('name', document.getElementById('name').value);
             formData.append('email', document.getElementById('email').value);
@@ -1055,15 +1101,12 @@
             formData.append('service', document.getElementById('service').value);
             formData.append('message', document.getElementById('message').value);
             
-            // Use fetch API to submit the formx
             fetch(SCRIPT_URL, {
                 method: 'POST',
                 body: formData,
-                mode: 'no-cors' // This is important to avoid CORS issues
+                mode: 'no-cors'
             })
             .then(response => {
-                // Since we're using no-cors, we can't actually read the response
-                // So we'll just assume success if we get here
                 document.getElementById('loading-indicator').style.display = 'none';
                 document.getElementById('success-message').style.display = 'block';
             })
@@ -1074,6 +1117,36 @@
                 console.error('Error:', error);
             });
         }
+
+        // Form submission event
+        document.getElementById('service-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitFormData();
+        });
+
+        // Mobile menu toggle and dropdown handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const dropdownButtons = document.querySelectorAll('.mobile-dropdown-button');
+
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+            });
+
+            dropdownButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const dropdownContent = this.nextElementSibling;
+                    dropdownContent.classList.toggle('active');
+                });
+            });
+
+            // Handle URL hash for category tabs
+            const hash = window.location.hash.replace('#', '');
+            if (hash && ['new-business', 'manage-business', 'gst', 'income-tax'].includes(hash)) {
+                showCategory(hash);
+            }
+        });
     </script>
 </body>
 </html>
