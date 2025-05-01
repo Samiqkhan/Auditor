@@ -36,7 +36,7 @@
             padding: 0 15px;
         }
 
-        .header-container {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -53,22 +53,17 @@
             color: #2dd4bf;
         }
 
-        .desktop-nav ul {
+        nav ul {
             display: flex;
             list-style: none;
         }
 
-        .nav-list {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-item {
+        nav ul li {
             margin-left: 20px;
             position: relative;
         }
 
-        .nav-link {
+        nav ul li a {
             text-decoration: none;
             color: #666;
             font-weight: 500;
@@ -77,11 +72,17 @@
             display: inline-block;
         }
 
-        .nav-link:hover {
+        nav ul li a:hover {
             color: #2dd4bf;
         }
 
-        .dropdown-icon {
+        nav ul li a.active {
+            color: #2dd4bf;
+            font-weight: 600;
+        }
+
+        .dropdown-toggle::after {
+            content: "▼";
             font-size: 10px;
             margin-left: 5px;
             vertical-align: middle;
@@ -99,123 +100,26 @@
             z-index: 101;
         }
 
-        .dropdown:hover .dropdown-menu {
-            display: block;
+        .dropdown-menu li {
+            margin: 0;
         }
 
-        .dropdown-content a {
+        .dropdown-menu li a {
             padding: 10px 15px;
             display: block;
             color: #666;
             font-weight: normal;
-            text-decoration: none;
         }
 
-        .dropdown-content a:hover {
+        .dropdown-menu li a:hover {
             background-color: #f8f9fa;
             color: #2dd4bf;
         }
 
-        .dropdown-item-title {
-            font-weight: 500;
-            color: #333;
-        }
-
-        .dropdown-item-description {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .mobile-menu-button {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        .menu-icon {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: #333;
-            position: relative;
-        }
-
-        .menu-icon::before,
-        .menu-icon::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 3px;
-            background-color: #333;
-            left: 0;
-        }
-
-        .menu-icon::before {
-            top: -8px;
-        }
-
-        .menu-icon::after {
-            top: 8px;
-        }
-
-        .mobile-menu {
-            display: none;
-            background-color: #fff;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            z-index: 100;
-        }
-
-        .mobile-menu.active {
+        nav ul li:hover .dropdown-menu {
             display: block;
         }
 
-        .mobile-menu-item {
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .mobile-menu-item a,
-        .mobile-dropdown-button {
-            display: block;
-            padding: 10px 15px;
-            color: #666;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .mobile-dropdown-button {
-            background: none;
-            border: none;
-            width: 100%;
-            text-align: left;
-            cursor: pointer;
-        }
-
-        .mobile-dropdown-icon {
-            font-size: 10px;
-            margin-left: 5px;
-        }
-
-        .mobile-dropdown-content {
-            display: none;
-            background-color: #f8f9fa;
-            padding: 10px 15px;
-        }
-
-        .mobile-dropdown-content.active {
-            display: block;
-        }
-
-        .mobile-dropdown-content a {
-            padding: 8px 15px;
-            font-size: 14px;
-        }
 
         /* Page Title Section */
         .page-title {
@@ -607,72 +511,64 @@
 </head>
 <body>
      <!-- Header -->
-     <header class="header">
-        <div class="container header-container">
-            <div class="logo">
-                <a href="index.html">
-                    <span class="logo-e">e</span><span class="logo-auditor">Auditor</span><span class="logo-office">office</span>
-                </a>
-            </div>
-            
-            <nav class="desktop-nav">
-                <ul class="nav-list">
-                    <li class="nav-item dropdown">
-                        <a href="services.html" class="nav-link">Services <span class="dropdown-icon">▼</span></a>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-content">
-                                <a href="services.html#new-business" class="dropdown-item">
-                                    <div class="dropdown-item-title">New Business</div>
-                                    <div class="dropdown-item-description">Register your business with ease</div>
-                                </a>
-                                <a href="services.html#gst" class="dropdown-item">
-                                    <div class="dropdown-item-title">GST</div>
-                                    <div class="dropdown-item-description">GST registration and filing services</div>
-                                </a>
-                                <a href="services.html#income-tax" class="dropdown-item">
-                                    <div class="dropdown-item-title">Income Tax</div>
-                                    <div class="dropdown-item-description">Income tax filing and planning</div>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="about.html" class="nav-link">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Contact</a>
-                    </li>
-                </ul>
-            </nav>
-            
-            <button class="mobile-menu-button" aria-label="Toggle menu">
-                <span class="menu-icon"></span>
-            </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <div class="container">
-                <div class="mobile-menu-item">
-                    <button class="mobile-dropdown-button">
-                        Services <span class="mobile-dropdown-icon">▼</span>
-                    </button>
-                    <div class="mobile-dropdown-content">
-                        <a href="services.html#new-business">New Business</a>
-                        <a href="services.html#gst">GST</a>
-                        <a href="services.html#income-tax">Income Tax</a>
-                    </div>
-                </div>
-                <div class="mobile-menu-item">
-                    <a href="about.html">About Us</a>
-                </div>
-                <div class="mobile-menu-item">
-                    <a href="contact.html">Contact</a>
-                </div>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo"><span>e</span>Auditoroffice</a>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#" class="dropdown-toggle">Income Tax</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" onclick="showForm('Income Tax Services')">Income Tax Services</a></li>
+                                <li><a href="#" onclick="showForm('Income Tax Returns Filings')">Income Tax Returns Filings</a></li>
+                                <li><a href="#" onclick="showForm('Form 15CA & Form 15CB')">Form 15CA & Form 15CB</a></li>
+                                <li><a href="#" onclick="showForm('NRI Income Tax Planning & Filing')">NRI Income Tax Planning & Filing</a></li>
+                                <li><a href="#" onclick="showForm('NSDL Services')">NSDL Services</a></li>
+                                <li><a href="#" onclick="showForm('PAN Application')">PAN Application</a></li>
+                                <li><a href="#" onclick="showForm('TAN Application')">TAN Application</a></li>
+                                <li><a href="#" onclick="showForm('Tax Deducted at Source')">Tax Deducted at Source</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle">GST</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" onclick="showForm('GST Registration')">GST Registration</a></li>
+                                <li><a href="#" onclick="showForm('GST Filing')">GST Filing</a></li>
+                                <li><a href="#" onclick="showForm('GST Consultation')">GST Consultation</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle">Banking</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" onclick="showForm('Banking Services')">Banking Services</a></li>
+                                <li><a href="#" onclick="showForm('Loan Assistance')">Loan Assistance</a></li>
+                                <li><a href="#" onclick="showForm('Financial Planning')">Financial Planning</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle">Insurance</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" onclick="showForm('Life Insurance')">Life Insurance</a></li>
+                                <li><a href="#" onclick="showForm('Health Insurance')">Health Insurance</a></li>
+                                <li><a href="#" onclick="showForm('Business Insurance')">Business Insurance</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle">Internship</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" onclick="showForm('Accounting Internship')">Accounting Internship</a></li>
+                                <li><a href="#" onclick="showForm('Tax Internship')">Tax Internship</a></li>
+                                <li><a href="#" onclick="showForm('Finance Internship')">Finance Internship</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
-
 
     <!-- Page Title -->
     <section class="page-title">
@@ -695,7 +591,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Our Office</h4>
-                                <p>123 Business Avenue<br>New Delhi, 110001<br>India</p>
+                                <p>92, Angammal Colony,<br>TVS Bus-top Near Pothys,<br>Salem - 636 009                                </p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -704,7 +600,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Phone</h4>
-                                <p>+91 98765 43210<br>+91 11 2345 6789</p>
+                                <p>98427 44500<br>98428 44500<br>0427-4043500</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -713,7 +609,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Email</h4>
-                                <p>info@eauditoroffice.com<br>support@eauditoroffice.com</p>
+                                <p>auditorpaulraj@gmail.com</p>
                             </div>
                         </div>
                     </div>
