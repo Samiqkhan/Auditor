@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - eAuditoroffice</title>
+    <title>Our Services - eAuditoroffice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* CSS from original services.html */
         * {
             margin: 0;
             padding: 0;
@@ -36,7 +36,7 @@
             padding: 0 15px;
         }
 
-        .header-container {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -53,22 +53,17 @@
             color: #2dd4bf;
         }
 
-        .desktop-nav ul {
+        nav ul {
             display: flex;
             list-style: none;
         }
 
-        .nav-list {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-item {
+        nav ul li {
             margin-left: 20px;
             position: relative;
         }
 
-        .nav-link {
+        nav ul li a {
             text-decoration: none;
             color: #666;
             font-weight: 500;
@@ -77,11 +72,17 @@
             display: inline-block;
         }
 
-        .nav-link:hover {
+        nav ul li a:hover {
             color: #2dd4bf;
         }
 
-        .dropdown-icon {
+        nav ul li a.active {
+            color: #2dd4bf;
+            font-weight: 600;
+        }
+
+        .dropdown-toggle::after {
+            content: "▼";
             font-size: 10px;
             margin-left: 5px;
             vertical-align: middle;
@@ -99,256 +100,122 @@
             z-index: 101;
         }
 
-        .dropdown:hover .dropdown-menu {
-            display: block;
+        .dropdown-menu li {
+            margin: 0;
         }
 
-        .dropdown-content a {
+        .dropdown-menu li a {
             padding: 10px 15px;
             display: block;
             color: #666;
             font-weight: normal;
-            text-decoration: none;
         }
 
-        .dropdown-content a:hover {
+        .dropdown-menu li a:hover {
             background-color: #f8f9fa;
             color: #2dd4bf;
         }
 
-        .dropdown-item-title {
-            font-weight: 500;
-            color: #333;
-        }
-
-        .dropdown-item-description {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .mobile-menu-button {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        .menu-icon {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: #333;
-            position: relative;
-        }
-
-        .menu-icon::before,
-        .menu-icon::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 3px;
-            background-color: #333;
-            left: 0;
-        }
-
-        .menu-icon::before {
-            top: -8px;
-        }
-
-        .menu-icon::after {
-            top: 8px;
-        }
-
-        .mobile-menu {
-            display: none;
-            background-color: #fff;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            z-index: 100;
-        }
-
-        .mobile-menu.active {
+        nav ul li:hover .dropdown-menu {
             display: block;
         }
 
-        .mobile-menu-item {
-            padding: 15px 0;
+        .page-title {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+            text-align: center;
             border-bottom: 1px solid #eee;
         }
 
-        .mobile-menu-item a,
-        .mobile-dropdown-button {
-            display: block;
-            padding: 10px 15px;
-            color: #666;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .mobile-dropdown-button {
-            background: none;
-            border: none;
-            width: 100%;
-            text-align: left;
-            cursor: pointer;
-        }
-
-        .mobile-dropdown-icon {
-            font-size: 10px;
-            margin-left: 5px;
-        }
-
-        .mobile-dropdown-content {
-            display: none;
-            background-color: #f8f9fa;
-            padding: 10px 15px;
-        }
-
-        .mobile-dropdown-content.active {
-            display: block;
-        }
-
-        .mobile-dropdown-content a {
-            padding: 8px 15px;
-            font-size: 14px;
-        }
-
-        .hero {
-            padding: 60px 0;
-            background-color: #fff;
-        }
-
-        .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .hero-text {
-            flex: 1;
-            padding-right: 30px;
-        }
-
-        .hero-text h1 {
-            font-size: 48px;
-            color: #333;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero-text p {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        .hero-image {
-            flex: 1;
-            text-align: right;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .services {
-            padding: 60px 0;
-            background-color: #f8f9fa;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-title h2 {
-            font-size: 36px;
+        .page-title h1 {
+            font-size: 42px;
             color: #333;
             margin-bottom: 15px;
         }
 
-        .section-title p {
+        .page-title p {
+            font-size: 18px;
             color: #666;
             max-width: 700px;
             margin: 0 auto;
-            font-size: 18px;
         }
 
-        .service-categories {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
+        .services-intro {
+            padding: 80px 0 40px;
+            text-align: center;
         }
 
-        .category-tab {
-            padding: 12px 25px;
-            margin: 0 10px 10px;
-            background-color: #fff;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 500;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
-        }
-
-        .category-tab:hover {
-            background-color: #f0f0f0;
-        }
-
-        .category-tab.active {
-            background-color: #2dd4bf;
-            color: white;
-        }
-
-        .service-subcategories {
-            display: none;
-            margin-bottom: 40px;
-        }
-
-        .service-subcategories.active {
-            display: block;
-        }
-
-        .subcategory-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .subcategory-item {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .subcategory-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .subcategory-item h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
+        .services-intro h2 {
+            font-size: 36px;
             color: #333;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
         }
 
-        .subcategory-item p {
+        .services-intro h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background-color: #2dd4bf;
+            transform: translateX(-50%);
+        }
+
+        .services-intro p {
+            font-size: 18px;
             color: #666;
-            font-size: 14px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .service-category {
+            padding: 60px 0;
+        }
+
+        .service-category:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .category-header h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+
+        .category-header h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #2dd4bf;
+            transform: translateX(-50%);
+        }
+
+        .category-header p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
 
@@ -358,21 +225,23 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .service-icon {
-            height: 180px;
-            background-color: #f1f1f1;
+            height: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 60px;
+            background-color: rgba(45, 212, 191, 0.1);
+        }
+
+        .service-icon i {
+            font-size: 48px;
             color: #2dd4bf;
         }
 
@@ -382,33 +251,256 @@
 
         .service-content h3 {
             font-size: 22px;
-            margin-bottom: 15px;
             color: #333;
+            margin-bottom: 15px;
         }
 
         .service-content p {
             color: #666;
             margin-bottom: 20px;
-            font-size: 16px;
+            min-height: 80px;
         }
 
         .service-link {
+            display: inline-block;
             color: #2dd4bf;
+            font-weight: 600;
             text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
+            transition: color 0.3s;
         }
 
         .service-link:hover {
-            text-decoration: underline;
+            color: #22a69b;
         }
 
-        .service-link::after {
-            content: "→";
+        .service-link i {
             margin-left: 5px;
+            transition: transform 0.3s;
         }
 
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+
+        .process-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .process-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .process-header h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+
+        .process-header h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background-color: #2dd4bf;
+            transform: translateX(-50%);
+        }
+
+        .process-header p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #ddd;
+            z-index: 1;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            width: 25%;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: #2dd4bf;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .step-title {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .step-description {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .cta-section {
+            padding: 80px 0;
+            background-color: #2dd4bf;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn-white {
+            display: inline-block;
+            background-color: white;
+            color: #2dd4bf;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-white:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            transform: translateY(-3px);
+        }
+
+        .faq-section {
+            padding: 80px 0;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .faq-header h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+
+        .faq-header h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background-color: #2dd4bf;
+            transform: translateX(-50%);
+        }
+
+        .faq-header p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #f1f1f1;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-question {
+            background-color: #2dd4bf;
+            color: white;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 1000px;
+        }
+
+        /* Form Section Styles */
         .form-section {
             display: none;
             padding: 60px 0;
@@ -614,249 +706,507 @@
             color: #bbb;
         }
 
-        @media (max-width: 992px) {
-            .hero-content {
-                flex-direction: column;
-            }
-
-            .hero-text {
-                padding-right: 0;
-                margin-bottom: 30px;
-                text-align: center;
-            }
-
-            .hero-image {
-                text-align: center;
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 768px) {
-            .desktop-nav {
+            .header-content {
+                flex-direction: column;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
                 display: none;
+                min-width: auto;
+                margin-top: 10px;
+                background-color: #f8f9fa;
             }
 
-            .mobile-menu-button {
-                display: block;
-            }
-
-            .hero-text h1 {
-                font-size: 36px;
+            .page-title h1 {
+                font-size: 32px;
             }
 
             .services-grid {
                 grid-template-columns: 1fr;
             }
 
-            .subcategory-list {
-                grid-template-columns: 1fr;
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .process-step {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 40px;
+            }
+
+            .process-step:last-child {
+                margin-bottom: 0;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="container header-container">
-            <div class="logo">
-                <a href="index.html">
-                    <span class="logo-e">e</span><span class="logo-auditor">Auditor</span><span class="logo-office">office</span>
-                </a>
-            </div>
-            
-            <nav class="desktop-nav">
-                <ul class="nav-list">
-                    <li class="nav-item dropdown">
-                        <a href="services.html" class="nav-link">Services <span class="dropdown-icon">▼</span></a>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-content">
-                                <a href="services.html#new-business" class="dropdown-item">
-                                    <div class="dropdown-item-title">New Business</div>
-                                    <div class="dropdown-item-description">Register your business with ease</div>
-                                </a>
-                                <a href="services.html#gst" class="dropdown-item">
-                                    <div class="dropdown-item-title">GST</div>
-                                    <div class="dropdown-item-description">GST registration and filing services</div>
-                                </a>
-                                <a href="services.html#income-tax" class="dropdown-item">
-                                    <div class="dropdown-item-title">Income Tax</div>
-                                    <div class="dropdown-item-description">Income tax filing and planning</div>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="about.html" class="nav-link">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Contact</a>
-                    </li>
-                </ul>
-            </nav>
-            
-            <button class="mobile-menu-button" aria-label="Toggle menu">
-                <span class="menu-icon"></span>
-            </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <div class="container">
-                <div class="mobile-menu-item">
-                    <button class="mobile-dropdown-button">
-                        Services <span class="mobile-dropdown-icon">▼</span>
-                    </button>
-                    <div class="mobile-dropdown-content">
-                        <a href="services.html#new-business">New Business</a>
-                        <a href="services.html#gst">GST</a>
-                        <a href="services.html#income-tax">Income Tax</a>
-                    </div>
-                </div>
-                <div class="mobile-menu-item">
-                    <a href="about.html">About Us</a>
-                </div>
-                <div class="mobile-menu-item">
-                    <a href="contact.html">Contact</a>
-                </div>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo"><span>e</span>Auditoroffice</a>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#" class="dropdown-toggle">Income Tax</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" onclick="showForm('Income Tax Services')">Income Tax Services</a></li>
+                                <li><a href="#" onclick="showForm('Income Tax Returns Filings')">Income Tax Returns Filings</a></li>
+                                <li><a href="#" onclick="showForm('Form 15CA & Form 15CB')">Form 15CA & Form 15CB</a></li>
+                                <li><a href="#" onclick="showForm('NRI Income Tax Planning & Filing')">NRI Income Tax Planning & Filing</a></li>
+                                <li><a href="#" onclick="showForm('NSDL Services')">NSDL Services</a></li>
+                                <li><a href="#" onclick="showForm('PAN Application')">PAN Application</a></li>
+                                <li><a href="#" onclick="showForm('TAN Application')">TAN Application</a></li>
+                                <li><a href="#" onclick="showForm('Tax Deducted at Source')">Tax Deducted at Source</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle">GST</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" onclick="showForm('GST Registration')">GST Registration</a></li>
+                                <li><a href="#" onclick="showForm('GST Filing')">GST Filing</a></li>
+                                <li><a href="#" onclick="showForm('GST Consultation')">GST Consultation</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle">Banking</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" onclick="showForm('Banking Services')">Banking Services</a></li>
+                                <li><a href="#" onclick="showForm('Loan Assistance')">Loan Assistance</a></li>
+                                <li><a href="#" onclick="showForm('Financial Planning')">Financial Planning</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle">Insurance</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" onclick="showForm('Life Insurance')">Life Insurance</a></li>
+                                <li><a href="#" onclick="showForm('Health Insurance')">Health Insurance</a></li>
+                                <li><a href="#" onclick="showForm('Business Insurance')">Business Insurance</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle">Internship</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" onclick="showForm('Accounting Internship')">Accounting Internship</a></li>
+                                <li><a href="#" onclick="showForm('Tax Internship')">Tax Internship</a></li>
+                                <li><a href="#" onclick="showForm('Finance Internship')">Finance Internship</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Our Professional Services</h1>
-                    <p>Comprehensive solutions to help your business grow while staying compliant with all regulatory requirements.</p>
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Page Title -->
+        <section class="page-title">
+            <div class="container">
+                <h1>Our Services</h1>
+                <p>Comprehensive accounting, tax, and business solutions tailored to your needs</p>
+            </div>
+        </section>
+
+        <!-- Services Intro -->
+        <section class="services-intro">
+            <div class="container">
+                <h2>How We Can Help You</h2>
+                <p>At eAuditoroffice, we offer a wide range of professional services designed to help businesses and individuals navigate the complexities of accounting, taxation, and financial management. Our team of experts is committed to providing personalized solutions that address your specific needs and help you achieve your financial goals.</p>
+            </div>
+        </section>
+
+        <!-- Income Tax Services -->
+        <section class="service-category">
+            <div class="container">
+                <div class="category-header">
+                    <h2>Income Tax Services</h2>
+                    <p>Comprehensive income tax solutions for individuals and businesses</p>
                 </div>
-                <div class="hero-image">
-                    <img src="placeholder.svg" alt="Services Illustration">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Services</h2>
-                <p>Select a category to explore our specialized services</p>
-            </div>
-
-            <!-- Service Categories Tabs -->
-            <div class="service-categories">
-                <div class="category-tab active" onclick="showCategory('income-tax')">Income Tax</div>
-                <div class="category-tab" onclick="showCategory('gst')">GST</div>
-                <div class="category-tab" onclick="showCategory('manage-business')">Manage Business</div>
-                <div class="category-tab" onclick="showCategory('new-business')">New Business</div>
-            </div>
-
-            <!-- Income Tax Subcategories -->
-            <div id="income-tax-subcategories" class="service-subcategories active">
-                <div class="subcategory-list">
-                    <div class="subcategory-item" onclick="showForm('Income Tax Services')">
-                        <h3>Income Tax Services</h3>
-                        <p>Comprehensive income tax services for individuals and businesses</p>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Income Tax Services</h3>
+                            <p>Complete income tax planning, compliance, and advisory services for individuals, businesses, and other entities.</p>
+                            <a href="#" class="service-link" onclick="showForm('Income Tax Services')">Request Service <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <div class="subcategory-item" onclick="showForm('Income Tax Returns Filings')">
-                        <h3>Income Tax Returns Filings</h3>
-                        <p>Professional assistance with filing your income tax returns</p>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Income Tax Returns Filing</h3>
+                            <p>Preparation and filing of income tax returns for individuals, partnerships, companies, and other taxpayers.</p>
+                            <a href="#" class="service-link" onclick="showForm('Income Tax Returns Filings')">Request Service <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <div class="subcategory-item" onclick="showForm('Form 15CA & Form 15CB')">
-                        <h3>Form 15CA & Form 15CB</h3>
-                        <p>Expert help with foreign remittance tax forms</p>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Form 15CA & Form 15CB</h3>
+                            <p>Assistance with Form 15CA and 15CB for foreign remittances, ensuring compliance with tax regulations for international payments.</p>
+                            <a href="#" class="service-link" onclick="showForm('Form 15CA & Form 15CB')">Request Service <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <div class="subcategory-item" onclick="showForm('NRI Income Tax Planning & Filing')">
-                        <h3>NRI Income Tax Planning & Filing</h3>
-                        <p>Specialized tax services for Non-Resident Indians</p>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>NRI Income Tax Planning</h3>
+                            <p>Specialized tax planning and filing services for Non-Resident Indians (NRIs) with income in India.</p>
+                            <a href="#" class="service-link" onclick="showForm('NRI Income Tax Planning & Filing')">Request Service <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <div class="subcategory-item" onclick="showForm('NSDL Services')">
-                        <h3>NSDL Services</h3>
-                        <p>National Securities Depository Limited services</p>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>NSDL Services</h3>
+                            <p>Assistance with National Securities Depository Limited (NSDL) related services including TIN facilitation.</p>
+                            <a href="#" class="service-link" onclick="showForm('NSDL Services')">Request Service <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <div class="subcategory-item" onclick="showForm('PAN Application')">
-                        <h3>PAN Application</h3>
-                        <p>Assistance with Permanent Account Number applications</p>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-id-badge"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>PAN Application</h3>
+                            <p>Assistance with Permanent Account Number (PAN) applications, corrections, and other PAN-related services.</p>
+                            <a href="#" class="service-link" onclick="showForm('PAN Application')">Request Service <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <div class="subcategory-item" onclick="showForm('TAN Application')">
-                        <h3>TAN Application</h3>
-                        <p>Help with Tax Deduction Account Number applications</p>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-address-card"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>TAN Application</h3>
+                            <p>Support with Tax Deduction and Collection Account Number (TAN) applications and related services for tax deductors.</p>
+                            <a href="#" class="service-link" onclick="showForm('TAN Application')">Request Service <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <div class="subcategory-item" onclick="showForm('Tax Deducted at Source')">
-                        <h3>Tax Deducted at Source</h3>
-                        <p>TDS filing and compliance services</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- New Business Subcategories -->
-            <div id="new-business-subcategories" class="service-subcategories">
-                <div class="subcategory-list">
-                    <div class="subcategory-item" onclick="showForm('Business Registration')">
-                        <h3>Business Registration</h3>
-                        <p>Register your business entity with proper legal compliance</p>
-                    </div>
-                    <div class="subcategory-item" onclick="showForm('Startup Consultation')">
-                        <h3>Startup Consultation</h3>
-                        <p>Expert advice for new entrepreneurs and startups</p>
-                    </div>
-                    <div class="subcategory-item" onclick="showForm('Business Structure Planning')">
-                        <h3>Business Structure Planning</h3>
-                        <p>Determine the optimal legal structure for your business</p>
-                    </div>
-                    <div class="subcategory-item" onclick="showForm('Compliance Setup')">
-                        <h3>Compliance Setup</h3>
-                        <p>Set up all necessary compliance systems for your new business</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Manage Business Subcategories -->
-            <div id="manage-business-subcategories" class="service-subcategories">
-                <div class="subcategory-list">
-                    <div class="subcategory-item" onclick="showForm('Bookkeeping')">
-                        <h3>Bookkeeping</h3>
-                        <p>Professional bookkeeping services for your business</p>
-                    </div>
-                    <div class="subcategory-item" onclick="showForm('Financial Reporting')">
-                        <h3>Financial Reporting</h3>
-                        <p>Accurate and timely financial reports for your business</p>
-                    </div>
-                    <div class="subcategory-item" onclick="showForm('Business Advisory')">
-                        <h3>Business Advisory</h3>
-                        <p>Strategic business advice to help your business grow</p>
-                    </div>
-                    <div class="subcategory-item" onclick="showForm('Payroll Management')">
-                        <h3>Payroll Management</h3>
-                        <p>Comprehensive payroll services for your employees</p>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Tax Deducted at Source</h3>
+                            <p>Comprehensive TDS services including calculation, deduction, filing of TDS returns, and issuance of TDS certificates.</p>
+                            <a href="#" class="service-link" onclick="showForm('Tax Deducted at Source')">Request Service <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- GST Subcategories -->
-            <div id="gst-subcategories" class="service-subcategories">
-                <div class="subcategory-list">
-                    <div class="subcategory-item" onclick="showForm('GST Registration')">
-                        <h3>GST Registration</h3>
-                        <p>Assistance with Goods and Services Tax registration</p>
+        <!-- GST Services -->
+        <section class="service-category">
+            <div class="container">
+                <div class="category-header">
+                    <h2>GST Services</h2>
+                    <p>Complete GST compliance and advisory solutions</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>GST Registration</h3>
+                            <p>Assistance with GST registration process, determining registration requirements, and setting up GST compliance systems.</p>
+                            <a href="#" class="service-link" onclick="showForm('GST Registration')">Request Service <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <div class="subcategory-item" onclick="showForm('GST Filing')">
-                        <h3>GST Filing</h3>
-                        <p>Regular GST return filing services</p>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-file-invoice"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>GST Filing</h3>
+                            <p>Timely preparation and filing of monthly, quarterly, and annual GST returns to ensure compliance with tax regulations.</p>
+                            <a href="#" class="service-link" onclick="showForm('GST Filing')">Request Service <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <div class="subcategory-item" onclick="showForm('GST Consultation')">
-                        <h3>GST Consultation</h3>
-                        <p>Expert advice on GST compliance and optimization</p>
-                    </div>
-                    <div class="subcategory-item" onclick="showForm('GST Reconciliation')">
-                        <h3>GST Reconciliation</h3>
-                        <p>Reconciliation of GST input and output taxes</p>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>GST Consultation</h3>
+                            <p>Expert advice on GST implications for business transactions, input tax credit optimization, and GST planning strategies.</p>
+                            <a href="#" class="service-link" onclick="showForm('GST Consultation')">Request Service <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Banking Services -->
+        <section class="service-category">
+            <div class="container">
+                <div class="category-header">
+                    <h2>Banking Services</h2>
+                    <p>Professional banking and financial solutions</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Banking Services</h3>
+                            <p>Assistance with bank account opening, banking operations, and financial transactions for individuals and businesses.</p>
+                            <a href="#" class="service-link" onclick="showForm('Banking Services')">Request Service <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Loan Assistance</h3>
+                            <p>Support with loan applications, documentation, and processing for various types of loans including business, home, and personal loans.</p>
+                            <a href="#" class="service-link" onclick="showForm('Loan Assistance')">Request Service <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Financial Planning</h3>
+                            <p>Comprehensive financial planning services to help individuals and businesses achieve their financial goals and secure their future.</p>
+                            <a href="#" class="service-link" onclick="showForm('Financial Planning')">Request Service <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insurance Services -->
+        <section class="service-category">
+            <div class="container">
+                <div class="category-header">
+                    <h2>Insurance Services</h2>
+                    <p>Comprehensive insurance solutions for individuals and businesses</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Life Insurance</h3>
+                            <p>Expert guidance on life insurance policies to protect your family's financial future and provide peace of mind.</p>
+                            <a href="#" class="service-link" onclick="showForm('Life Insurance')">Request Service <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-medkit"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Health Insurance</h3>
+                            <p>Assistance with selecting and managing health insurance plans that provide optimal coverage for medical expenses.</p>
+                            <a href="#" class="service-link" onclick="showForm('Health Insurance')">Request Service <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Business Insurance</h3>
+                            <p>Comprehensive business insurance solutions to protect your company from various risks and liabilities.</p>
+                            <a href="#" class="service-link" onclick="showForm('Business Insurance')">Request Service <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Internship Services -->
+        <section class="service-category">
+            <div class="container">
+                <div class="category-header">
+                    <h2>Internship Programs</h2>
+                    <p>Professional development opportunities for aspiring finance professionals</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Accounting Internship</h3>
+                            <p>Hands-on experience in accounting practices, bookkeeping, and financial statement preparation for students and graduates.</p>
+                            <a href="#" class="service-link" onclick="showForm('Accounting Internship')">Apply Now <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Tax Internship</h3>
+                            <p>Practical training in tax preparation, filing, and compliance procedures for individuals interested in tax careers.</p>
+                            <a href="#" class="service-link" onclick="showForm('Tax Internship')">Apply Now <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Finance Internship</h3>
+                            <p>Learning opportunities in financial analysis, planning, and management for students pursuing finance careers.</p>
+                            <a href="#" class="service-link" onclick="showForm('Finance Internship')">Apply Now <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Process Section -->
+        <section class="process-section">
+            <div class="container">
+                <div class="process-header">
+                    <h2>Our Service Process</h2>
+                    <p>How we work with you to deliver exceptional results</p>
+                </div>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Initial Consultation</div>
+                        <div class="step-description">We begin by understanding your specific needs and objectives through a detailed consultation.</div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Custom Solution</div>
+                        <div class="step-description">Our experts develop a tailored solution designed specifically for your requirements.</div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Implementation</div>
+                        <div class="step-description">We implement the solution with attention to detail and regular communication.</div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-title">Ongoing Support</div>
+                        <div class="step-description">We provide continuous support and updates to ensure long-term success.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="faq-header">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Answers to common questions about our services</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What types of businesses do you work with?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We work with businesses of all sizes and across various industries, including startups, small and medium enterprises, established companies, and multinational corporations. Our services are tailored to meet the specific needs of each client, regardless of their size or sector.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How long does the GST registration process take?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The GST registration process typically takes 3-7 working days from the date of application submission, provided all required documents are in order. Our team ensures that the application is prepared correctly and follows up with the tax authorities to expedite the process.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What documents are required for income tax return filing?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The documents required for income tax return filing include PAN card, Aadhaar card, Form 16 (for salaried individuals), bank statements, investment proofs, property documents (if applicable), and any other income or deduction-related documents. The specific requirements may vary based on the type of taxpayer and the nature of income.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What are the eligibility criteria for your internship programs?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our internship programs are open to students pursuing degrees in accounting, finance, economics, or related fields. Candidates should have a strong academic background, basic knowledge of accounting principles, and a keen interest in learning practical aspects of the profession. Both undergraduate and postgraduate students are welcome to apply.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How can I determine which insurance policy is right for me?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Determining the right insurance policy depends on various factors including your age, health condition, financial situation, family responsibilities, and future goals. Our insurance experts conduct a thorough assessment of your needs and risk profile to recommend policies that provide optimal coverage at competitive premiums. We help you compare different options and make an informed decision.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Get Started?</h2>
+                    <p>Contact us today to discuss how we can help you with our professional services.</p>
+                    <a href="#" class="btn-white" onclick="showForm('General Inquiry')">Request a Service</a>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <!-- Form Section -->
     <section class="form-section" id="form-section">
@@ -886,10 +1236,11 @@
                         <label for="service-category">Service Category</label>
                         <select id="service-category" name="service-category" class="form-control" required>
                             <option value="">Select a category</option>
-                            <option value="New Business">New Business</option>
-                            <option value="Manage Business">Manage Business</option>
-                            <option value="GST">GST</option>
                             <option value="Income Tax">Income Tax</option>
+                            <option value="GST">GST</option>
+                            <option value="Banking">Banking</option>
+                            <option value="Insurance">Insurance</option>
+                            <option value="Internship">Internship</option>
                         </select>
                     </div>
                     
@@ -925,7 +1276,7 @@
                 </div>
                 
                 <div style="text-align: center; margin-top: 20px;">
-                    <button onclick="backToServices()" class="btn btn-secondary">Back to Services</button>
+                    <button type="button" onclick="backToServices()" class="btn btn-secondary">Back to Services</button>
                 </div>
             </div>
         </div>
@@ -972,24 +1323,6 @@
     <script>
         // Service data
         const serviceData = {
-            'New Business': [
-                'Business Registration',
-                'Startup Consultation',
-                'Business Structure Planning',
-                'Compliance Setup'
-            ],
-            'Manage Business': [
-                'Bookkeeping',
-                'Financial Reporting',
-                'Business Advisory',
-                'Payroll Management'
-            ],
-            'GST': [
-                'GST Registration',
-                'GST Filing',
-                'GST Consultation',
-                'GST Reconciliation'
-            ],
             'Income Tax': [
                 'Income Tax Services',
                 'Income Tax Returns Filings',
@@ -999,28 +1332,36 @@
                 'PAN Application',
                 'TAN Application',
                 'Tax Deducted at Source'
+            ],
+            'GST': [
+                'GST Registration',
+                'GST Filing',
+                'GST Consultation'
+            ],
+            'Banking': [
+                'Banking Services',
+                'Loan Assistance',
+                'Financial Planning'
+            ],
+            'Insurance': [
+                'Life Insurance',
+                'Health Insurance',
+                'Business Insurance'
+            ],
+            'Internship': [
+                'Accounting Internship',
+                'Tax Internship',
+                'Finance Internship'
             ]
         };
 
         // Google Sheets Web App URL - Replace with your deployed script URL
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwbhq_5JB6YPQqRui7L8494ztCPr-k99oZXIhauuDm5XK8AV42lgaL6dljq6IN2U7xiGQ/exec';
 
-        // Show category subcategories
-        function showCategory(category) {
-            document.querySelectorAll('.service-subcategories').forEach(el => {
-                el.classList.remove('active');
-            });
-            document.querySelectorAll('.category-tab').forEach(el => {
-                el.classList.remove('active');
-            });
-            document.getElementById(category + '-subcategories').classList.add('active');
-            document.querySelector(`.category-tab[onclick="showCategory('${category}')"]`).classList.add('active');
-        }
-
         // Show the form when a service is clicked
         function showForm(serviceType) {
-            document.getElementById('services-section').style.display = 'none';
-            document.getElementById('form-section').style.display = 'block';
+            document.getElementById('main-content').style.display = 'none';
+            document.getElementById('form-section').classList.add('active');
             document.getElementById('form-title').textContent = serviceType + ' Service Request';
             
             let selectedCategory = '';
@@ -1074,8 +1415,8 @@
 
         // Go back to services
         function backToServices() {
-            document.getElementById('services-section').style.display = 'block';
-            document.getElementById('form-section').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+            document.getElementById('form-section').classList.remove('active');
             document.getElementById('success-message').style.display = 'none';
             document.getElementById('error-message').style.display = 'none';
             document.getElementById('service-form').style.display = 'block';
@@ -1124,28 +1465,45 @@
             submitFormData();
         });
 
-        // Mobile menu toggle and dropdown handling
+        // Mobile menu toggle and FAQ handling
         document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.querySelector('.mobile-menu-button');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const dropdownButtons = document.querySelectorAll('.mobile-dropdown-button');
+            if (window.innerWidth <= 768) {
+                const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+                
+                dropdownToggles.forEach(toggle => {
+                    toggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const dropdownMenu = this.nextElementSibling;
+                        
+                        if (dropdownMenu.style.display === 'block') {
+                            dropdownMenu.style.display = 'none';
+                        } else {
+                            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                                menu.style.display = 'none';
+                            });
+                            dropdownMenu.style.display = 'block';
+                        }
+                    });
+                });
+            }
 
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('active');
-            });
-
-            dropdownButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const dropdownContent = this.nextElementSibling;
-                    dropdownContent.classList.toggle('active');
+            // FAQ toggle
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    
+                    if (faqItem.classList.contains('active')) {
+                        faqItem.classList.remove('active');
+                    } else {
+                        document.querySelectorAll('.faq-item').forEach(item => {
+                            item.classList.remove('active');
+                        });
+                        faqItem.classList.add('active');
+                    }
                 });
             });
-
-            // Handle URL hash for category tabs
-            const hash = window.location.hash.replace('#', '');
-            if (hash && ['new-business', 'manage-business', 'gst', 'income-tax'].includes(hash)) {
-                showCategory(hash);
-            }
         });
     </script>
 </body>
