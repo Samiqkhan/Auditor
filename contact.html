@@ -3,125 +3,911 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - eAuditor Office</title>
-    <meta name="description" content="Contact eAuditor Office for all your business compliance needs.">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <title>Contact Us - eAuditoroffice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #eee;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #2dd4bf;
+        }
+
+        .desktop-nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-item {
+            margin-left: 20px;
+            position: relative;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 10px 0;
+            display: inline-block;
+        }
+
+        .nav-link:hover {
+            color: #2dd4bf;
+        }
+
+        .dropdown-icon {
+            font-size: 10px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            min-width: 250px;
+            display: none;
+            z-index: 101;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-content a {
+            padding: 10px 15px;
+            display: block;
+            color: #666;
+            font-weight: normal;
+            text-decoration: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f8f9fa;
+            color: #2dd4bf;
+        }
+
+        .dropdown-item-title {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .dropdown-item-description {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .menu-icon {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            position: relative;
+        }
+
+        .menu-icon::before,
+        .menu-icon::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            left: 0;
+        }
+
+        .menu-icon::before {
+            top: -8px;
+        }
+
+        .menu-icon::after {
+            top: 8px;
+        }
+
+        .mobile-menu {
+            display: none;
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-menu-item a,
+        .mobile-dropdown-button {
+            display: block;
+            padding: 10px 15px;
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .mobile-dropdown-button {
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .mobile-dropdown-icon {
+            font-size: 10px;
+            margin-left: 5px;
+        }
+
+        .mobile-dropdown-content {
+            display: none;
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+        }
+
+        .mobile-dropdown-content.active {
+            display: block;
+        }
+
+        .mobile-dropdown-content a {
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+
+        /* Page Title Section */
+        .page-title {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .page-title h1 {
+            font-size: 42px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .page-title p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            padding-right: 30px;
+        }
+
+        .contact-info h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .contact-info h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #2dd4bf;
+        }
+
+        .contact-details {
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(45, 212, 191, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: #2dd4bf;
+            font-size: 20px;
+        }
+
+        .contact-text h4 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .contact-text p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .office-hours {
+            margin-bottom: 40px;
+        }
+
+        .office-hours h3 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .hours-table tr {
+            border-bottom: 1px solid #eee;
+        }
+
+        .hours-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .hours-table td {
+            padding: 12px 0;
+            color: #666;
+        }
+
+        .hours-table td:last-child {
+            text-align: right;
+            font-weight: 500;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: #f1f1f1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background-color: #2dd4bf;
+            color: white;
+        }
+
+        /* Contact Form */
+        .contact-form-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+        }
+
+        .contact-form-container h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: #2dd4bf;
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #2dd4bf;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #22a69b;
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        .loading-indicator {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #2dd4bf;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .error-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background-color: #f8d7da;
+            color: #721c24;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+        }
+
+        .map-container {
+            height: 450px;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #2dd4bf;
+        }
+
+        .footer-column p {
+            margin-bottom: 15px;
+            color: #bbb;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: #2dd4bf;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
+            color: #bbb;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .contact-info {
+                padding-right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                display: none;
+                min-width: auto;
+                margin-top: 10px;
+                background-color: #f8f9fa;
+            }
+
+            .page-title h1 {
+                font-size: 32px;
+            }
+
+            .contact-form-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header/Navigation (Same as index.html) -->
-    <header class="header">
-        <!-- Header content here (same as index.html) -->
+     <!-- Header -->
+     <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-e">e</span><span class="logo-auditor">Auditor</span><span class="logo-office">office</span>
+                </a>
+            </div>
+            
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <li class="nav-item dropdown">
+                        <a href="services.html" class="nav-link">Services <span class="dropdown-icon">▼</span></a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-content">
+                                <a href="services.html#new-business" class="dropdown-item">
+                                    <div class="dropdown-item-title">New Business</div>
+                                    <div class="dropdown-item-description">Register your business with ease</div>
+                                </a>
+                                <a href="services.html#gst" class="dropdown-item">
+                                    <div class="dropdown-item-title">GST</div>
+                                    <div class="dropdown-item-description">GST registration and filing services</div>
+                                </a>
+                                <a href="services.html#income-tax" class="dropdown-item">
+                                    <div class="dropdown-item-title">Income Tax</div>
+                                    <div class="dropdown-item-description">Income tax filing and planning</div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-button" aria-label="Toggle menu">
+                <span class="menu-icon"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <div class="container">
+                <div class="mobile-menu-item">
+                    <button class="mobile-dropdown-button">
+                        Services <span class="mobile-dropdown-icon">▼</span>
+                    </button>
+                    <div class="mobile-dropdown-content">
+                        <a href="services.html#new-business">New Business</a>
+                        <a href="services.html#gst">GST</a>
+                        <a href="services.html#income-tax">Income Tax</a>
+                    </div>
+                </div>
+                <div class="mobile-menu-item">
+                    <a href="about.html">About Us</a>
+                </div>
+                <div class="mobile-menu-item">
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section class="contact-section">
-            <div class="container">
-                <div class="section-header">
-                    <h1>Contact Us</h1>
-                    <p>Have questions or need assistance? Our team is here to help you with all your business compliance needs.</p>
-                </div>
 
-                <div class="contact-grid">
-                    <div class="contact-form-container">
-                        <h2>Get in Touch</h2>
-                        <form class="contact-form">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="name">Full Name</label>
-                                    <input type="text" id="name" placeholder="Your name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" id="email" placeholder="Your email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="text" id="phone" placeholder="Your phone number">
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <input type="text" id="subject" placeholder="How can we help you?">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" placeholder="Your message" rows="5"></textarea>
-                            </div>
-                            <button type="submit" class="cta-button">Send Message</button>
-                        </form>
-                    </div>
+    <!-- Page Title -->
+    <section class="page-title">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with our expert team for any inquiries or assistance</p>
+        </div>
+    </section>
 
-                    <div class="contact-info-container">
-                        <h2>Contact Information</h2>
-                        <div class="contact-cards">
-                            <div class="contact-card">
-                                <div class="contact-card-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                                    </svg>
-                                </div>
-                                <div class="contact-card-content">
-                                    <h3>Phone</h3>
-                                    <p>+91 98765 43210</p>
-                                    <p>+91 98765 43211</p>
-                                </div>
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
                             </div>
-
-                            <div class="contact-card">
-                                <div class="contact-card-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                        <polyline points="22,6 12,13 2,6"></polyline>
-                                    </svg>
-                                </div>
-                                <div class="contact-card-content">
-                                    <h3>Email</h3>
-                                    <p>info@eauditoroffice.com</p>
-                                    <p>support@eauditoroffice.com</p>
-                                </div>
+                            <div class="contact-text">
+                                <h4>Our Office</h4>
+                                <p>123 Business Avenue<br>New Delhi, 110001<br>India</p>
                             </div>
-
-                            <div class="contact-card">
-                                <div class="contact-card-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                </div>
-                                <div class="contact-card-content">
-                                    <h3>Office Address</h3>
-                                    <p>123 Business Avenue, Tech Park</p>
-                                    <p>Bangalore - 560001, India</p>
-                                </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
                             </div>
-
-                            <div class="contact-card">
-                                <div class="contact-card-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <polyline points="12 6 12 12 16 14"></polyline>
-                                    </svg>
-                                </div>
-                                <div class="contact-card-content">
-                                    <h3>Business Hours</h3>
-                                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                                    <p>Saturday: 10:00 AM - 2:00 PM</p>
-                                    <p>Sunday: Closed</p>
-                                </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>+91 98765 43210<br>+91 11 2345 6789</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>info@eauditoroffice.com<br>support@eauditoroffice.com</p>
                             </div>
                         </div>
                     </div>
+
+                    <div class="office-hours">
+                        <h3>Office Hours</h3>
+                        <table class="hours-table">
+                            <tr>
+                                <td>Monday - Friday</td>
+                                <td>9:00 AM - 6:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td>10:00 AM - 4:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday</td>
+                                <td>Closed</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <h2>Send Us a Message</h2>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-block">Send Message</button>
+                    </form>
+                    
+                    <div class="loading-indicator" id="loading-indicator">
+                        <div class="spinner"></div>
+                        <p>Sending your message...</p>
+                    </div>
+                    
+                    <div class="success-message" id="success-message">
+                        <h3>Thank you for your message!</h3>
+                        <p>We have received your inquiry and will get back to you shortly.</p>
+                    </div>
+                    
+                    <div class="error-message" id="error-message">
+                        <h3>Oops! Something went wrong.</h3>
+                        <p>There was an error sending your message. Please try again later or contact us directly.</p>
+                        <div id="error-details"></div>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <!-- Footer (Same as index.html) -->
-    <footer class="footer">
-        <!-- Footer content here (same as index.html) -->
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224346.54005639663!2d77.04417285!3d28.527758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1651825201018!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>eAuditoroffice provides professional accounting, tax, and business management services to help your business thrive.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p>123 Business Avenue</p>
+                    <p>New Delhi, India</p>
+                    <p>Email: info@eauditoroffice.com</p>
+                    <p>Phone: +91 98765 43210</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2023 eAuditoroffice. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+        // Google Sheets Web App URL - Replace with your deployed script URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwbhq_5JB6YPQqRui7L8494ztCPr-k99oZXIhauuDm5XK8AV42lgaL6dljq6IN2U7xiGQ/exec';
+
+        // Mobile menu toggle for dropdown
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth <= 768) {
+                const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+                
+                dropdownToggles.forEach(toggle => {
+                    toggle.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const dropdownMenu = this.nextElementSibling;
+                        
+                        if (dropdownMenu.style.display === 'block') {
+                            dropdownMenu.style.display = 'none';
+                        } else {
+                            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                                menu.style.display = 'none';
+                            });
+                            dropdownMenu.style.display = 'block';
+                        }
+                    });
+                });
+            }
+
+            // Form submission event
+            document.getElementById('contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                submitContactForm();
+            });
+        });
+
+        // Submit contact form data to Google Sheets
+        function submitContactForm() {
+            // Show loading indicator
+            document.getElementById('contact-form').style.display = 'none';
+            document.getElementById('loading-indicator').style.display = 'block';
+            document.getElementById('success-message').style.display = 'none';
+            document.getElementById('error-message').style.display = 'none';
+            document.getElementById('error-details').innerHTML = '';
+            
+            // Get form data
+            const formData = new FormData();
+            formData.append('name', document.getElementById('name').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('phone', document.getElementById('phone').value);
+            formData.append('subject', document.getElementById('subject').value);
+            formData.append('message', document.getElementById('message').value);
+            formData.append('form_type', 'contact'); // To differentiate from service forms
+            
+            // Use fetch API to submit the form
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors' // This is important to avoid CORS issues
+            })
+            .then(response => {
+                // Since we're using no-cors, we can't actually read the response
+                // So we'll just assume success if we get here
+                document.getElementById('loading-indicator').style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
+            })
+            .catch(error => {
+                document.getElementById('loading-indicator').style.display = 'none';
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('error-details').innerHTML = `<p>Error details: ${error.message}</p>`;
+                console.error('Error:', error);
+            });
+        }
+    </script>
 </body>
 </html>
