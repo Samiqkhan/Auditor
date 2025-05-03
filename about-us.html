@@ -221,7 +221,7 @@
             display: block;
         }
 
-        /* Page Title Section */
+        /* Page Title */
         .page-title {
             background-color: #f8f9fa;
             padding: 60px 0;
@@ -242,15 +242,10 @@
             margin: 0 auto;
         }
 
-        /* About Section */
-        .about-section {
-            padding: 80px 0;
-        }
-
+        /* About Intro */
         .about-intro {
+            padding: 80px 0;
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto 60px;
         }
 
         .about-intro h2 {
@@ -276,135 +271,23 @@
         .about-intro p {
             font-size: 18px;
             color: #666;
+            max-width: 800px;
+            margin: 0 auto 30px;
             line-height: 1.8;
         }
 
-        /* Story Section */
-        .story-section {
-            padding: 60px 0;
-            background-color: #f8f9fa;
-        }
-
-        .story-container {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .story-image {
-            flex: 1;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .story-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .story-content {
-            flex: 1;
-        }
-
-        .story-content h2 {
-            font-size: 32px;
-            color: #333;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .story-content h2::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 60px;
-            height: 3px;
-            background-color: #2dd4bf;
-        }
-
-        .story-content p {
-            margin-bottom: 20px;
-            color: #666;
-            line-height: 1.8;
-        }
-
-        /* Mission Vision Section */
-        .mission-vision {
-            padding: 80px 0;
-        }
-
-        .mission-vision-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .mission-box, .vision-box {
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            background-color: #fff;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .mission-box:hover, .vision-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .mission-box h3, .vision-box h3 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 15px;
-            display: inline-block;
-        }
-
-        .mission-box h3::after, .vision-box h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 3px;
-            background-color: #2dd4bf;
-        }
-
-        .mission-box p, .vision-box p {
-            color: #666;
-            line-height: 1.8;
-        }
-
-        .icon-box {
-            width: 70px;
-            height: 70px;
-            background-color: rgba(45, 212, 191, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
-            color: #2dd4bf;
-            font-size: 28px;
-        }
-
-        /* Values Section */
-        .values-section {
+        /* Team Section */
+        .team-section {
             padding: 80px 0;
             background-color: #f8f9fa;
         }
 
-        .section-title {
+        .team-header {
             text-align: center;
             margin-bottom: 50px;
         }
 
-        .section-title h2 {
+        .team-header h2 {
             font-size: 36px;
             color: #333;
             margin-bottom: 15px;
@@ -413,7 +296,7 @@
             display: inline-block;
         }
 
-        .section-title h2::after {
+        .team-header h2::after {
             content: '';
             position: absolute;
             left: 50%;
@@ -424,65 +307,16 @@
             transform: translateX(-50%);
         }
 
-        .section-title p {
+        .team-header p {
             font-size: 18px;
             color: #666;
             max-width: 700px;
             margin: 0 auto;
         }
 
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .value-card {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .value-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .value-icon {
-            width: 60px;
-            height: 60px;
-            background-color: rgba(45, 212, 191, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: #2dd4bf;
-            font-size: 24px;
-        }
-
-        .value-card h3 {
-            font-size: 20px;
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .value-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Team Section */
-        .team-section {
-            padding: 80px 0;
-        }
-
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
 
@@ -491,182 +325,26 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .team-member:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .member-image {
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .member-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .team-member:hover .member-image img {
-            transform: scale(1.05);
-        }
-
-        .member-info {
+            text-align: center;
             padding: 20px;
-            text-align: center;
         }
 
-        .member-info h3 {
-            font-size: 20px;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .member-info p {
-            color: #2dd4bf;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-
-        .member-social {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .social-icon {
-            width: 36px;
-            height: 36px;
-            background-color: #f1f1f1;
+        .team-member img {
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-size: 16px;
-            transition: all 0.3s;
+            margin-bottom: 20px;
         }
 
-        .social-icon:hover {
-            background-color: #2dd4bf;
-            color: white;
-        }
-
-        /* Achievements Section */
-        .achievements-section {
-            padding: 80px 0;
-            background-color: #f8f9fa;
-        }
-
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-
-        .achievement-card {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .achievement-icon {
-            width: 70px;
-            height: 70px;
-            background-color: rgba(45, 212, 191, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: #2dd4bf;
-            font-size: 28px;
-        }
-
-        .achievement-number {
-            font-size: 36px;
-            font-weight: bold;
+        .team-member h3 {
+            font-size: 22px;
             color: #333;
             margin-bottom: 10px;
         }
 
-        .achievement-text {
-            color: #666;
+        .team-member p {
             font-size: 16px;
-        }
-
-        /* Testimonials Section */
-        .testimonials-section {
-            padding: 80px 0;
-        }
-
-        .testimonials-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .testimonial-card {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            position: relative;
-        }
-
-        .testimonial-card::before {
-            content: '\201C';
-            font-size: 80px;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            color: rgba(45, 212, 191, 0.1);
-            font-family: Georgia, serif;
-            line-height: 1;
-        }
-
-        .testimonial-text {
             color: #666;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .author-image {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-        }
-
-        .author-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .author-info h4 {
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .author-info p {
-            color: #666;
-            font-size: 14px;
         }
 
         /* CTA Section */
@@ -710,63 +388,207 @@
             transform: translateY(-3px);
         }
 
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 60px 0 30px;
+        /* Form Section */
+        .form-section {
+            display: none;
+            padding: 60px 0;
+            background-color: #f8f9fa;
         }
 
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+        .form-section.active {
+            display: block;
         }
 
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-header {
+            text-align: center;
             margin-bottom: 30px;
         }
 
+        .form-header h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .form-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: #2dd4bf;
+            outline: none;
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #2dd4bf;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #22a69b;
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .error-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background-color: #f8d7da;
+            color: #721c24;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .loading-indicator {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #2dd4bf;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f2937;
+            color: #e5e7eb;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
         .footer-column h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
             position: relative;
-            padding-bottom: 10px;
         }
 
         .footer-column h3::after {
             content: '';
             position: absolute;
             left: 0;
-            bottom: 0;
-            width: 50px;
+            bottom: -0.5rem;
+            width: 2rem;
             height: 2px;
             background-color: #2dd4bf;
         }
 
         .footer-column p {
-            margin-bottom: 15px;
-            color: #bbb;
+            color: #9ca3af;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
         }
 
-        .footer-column ul {
-            list-style: none;
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
-        .footer-column ul li {
-            margin-bottom: 10px;
+        .footer-links a {
+            color: #9ca3af;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
         }
 
-        .footer-column ul li a {
-            color: #bbb;
-            text-decoration: none;
-            transition: color 0.3s;
+        .footer-links a:hover {
+            color: white;
         }
 
-        .footer-column ul li a:hover {
-            color: #2dd4bf;
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .contact-info p {
+            color: #9ca3af;
         }
 
         .footer-bottom {
@@ -777,32 +599,8 @@
             color: #bbb;
         }
 
-        /* Responsive Styles */
         @media (max-width: 1024px) {
             .team-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .achievements-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .story-container {
-                flex-direction: column;
-            }
-            
-            .mission-vision-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .values-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .testimonials-container {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -826,29 +624,7 @@
                 display: block;
             }
 
-            .page-title h1 {
-                font-size: 32px;
-            }
-            
             .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .values-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .testimonials-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .achievements-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -863,6 +639,7 @@
                 <nav>
                     <button class="hamburger"><i class="fas fa-bars"></i></button>
                     <ul>
+                        <li><a href="index.html">Home</a></li>
                         <li>
                             <a href="#" class="dropdown-toggle">Income Tax</a>
                             <ul class="dropdown-menu">
@@ -920,6 +697,7 @@
     <div class="mobile-menu" id="mobile-menu">
         <button class="close-btn"><i class="fas fa-times"></i></button>
         <ul>
+            <li><a href="index.html">Home</a></li>
             <li>
                 <a href="#" class="dropdown-toggle">Income Tax</a>
                 <ul class="dropdown-menu">
@@ -971,280 +749,134 @@
     </div>
     <div class="overlay" id="overlay"></div>
 
-    <!-- Page Title -->
-    <section class="page-title">
-        <div class="container">
-            <h1>About Us</h1>
-            <p>Learn more about our journey, mission, and the team behind eAuditoroffice</p>
-        </div>
-    </section>
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Page Title -->
+        <section class="page-title">
+            <div class="container">
+                <h1>About Us</h1>
+                <p>Learn more about our mission, vision, and the team behind eAuditoroffice</p>
+            </div>
+        </section>
 
-    <!-- About Intro Section -->
-    <section class="about-section">
-        <div class="container">
-            <div class="about-intro">
-                <h2>Welcome to eAuditoroffice</h2>
-                <p>eAuditoroffice is a premier accounting and tax advisory firm dedicated to helping businesses navigate the complex world of finance, taxation, and compliance. With years of experience and a team of skilled professionals, we provide comprehensive solutions tailored to meet the unique needs of each client.</p>
+        <!-- About Intro -->
+        <section class="about-intro">
+            <div class="container">
+                <h2>Who We Are</h2>
+                <p>At eAuditoroffice, we are a team of dedicated professionals committed to providing top-notch accounting, tax, and business management services. With years of experience in the industry, we aim to simplify financial complexities for businesses and individuals alike, ensuring compliance and fostering growth.</p>
+                <p>Our mission is to empower our clients with the knowledge and tools they need to achieve their financial goals, while our vision is to be the leading financial services provider known for reliability and excellence.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Our Story Section -->
-    <section class="story-section">
-        <div class="container">
-            <div class="story-container">
-                <div class="story-image">
-                    <img src="/placeholder.svg?height=400&width=600" alt="eAuditoroffice office">
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="container">
+                <div class="team-header">
+                    <h2>Meet Our Team</h2>
+                    <p>Our experts are here to guide you every step of the way</p>
                 </div>
-                <div class="story-content">
-                    <h2>Our Story</h2>
-                    <p>Founded in 2010, eAuditoroffice began as a small accounting practice with a vision to revolutionize how businesses manage their financial operations. What started as a three-person team has now grown into a full-service accounting and tax advisory firm serving clients across India.</p>
-                    <p>Over the years, we have continuously evolved our services to meet the changing needs of businesses in an increasingly digital world. Our journey has been marked by a commitment to excellence, innovation, and client satisfaction.</p>
-                    <p>Today, eAuditoroffice stands as a trusted partner for businesses of all sizes, from startups to established enterprises, helping them achieve financial clarity, compliance, and growth.</p>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://via.placeholder.com/150" alt="Team Member">
+                        <h3>John Doe</h3>
+                        <p>Senior Tax Consultant</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://via.placeholder.com/150" alt="Team Member">
+                        <h3>Jane Smith</h3>
+                        <p>Financial Advisor</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://via.placeholder.com/150" alt="Team Member">
+                        <h3>Michael Brown</h3>
+                        <p>Accounting Specialist</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Mission & Vision Section -->
-    <section class="mission-vision">
-        <div class="container">
-            <div class="mission-vision-container">
-                <div class="mission-box">
-                    <div class="icon-box">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3>Our Mission</h3>
-                    <p>To empower businesses with accurate financial information, expert guidance, and innovative solutions that drive growth and ensure compliance. We strive to be more than just service providers – we aim to be trusted advisors who contribute to our clients' long-term success.</p>
-                </div>
-                <div class="vision-box">
-                    <div class="icon-box">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>Our Vision</h3>
-                    <p>To be the most trusted and innovative accounting and tax advisory firm in India, recognized for our expertise, integrity, and client-centric approach. We envision a future where businesses of all sizes have access to world-class financial services that enable them to thrive in a competitive marketplace.</p>
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Get Started?</h2>
+                    <p>Contact us today to discuss how we can help you with our professional services.</p>
+                    <a href="#" class="btn-white" onclick="showForm('General Inquiry')">Request a Service</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- Core Values Section -->
-    <section class="values-section">
+    <!-- Form Section -->
+    <section class="form-section" id="form-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Our Core Values</h2>
-                <p>The principles that guide our work and relationships</p>
-            </div>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
-                    <h3>Integrity</h3>
-                    <p>We uphold the highest ethical standards in all our dealings, ensuring transparency, honesty, and accountability in everything we do.</p>
+            <div class="form-container">
+                <div class="form-header">
+                    <h2 id="form-title">Service Request Form</h2>
+                    <p>Please fill out the form below and our team will get back to you shortly.</p>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-star"></i>
+                <form id="service-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
                     </div>
-                    <h3>Excellence</h3>
-                    <p>We are committed to delivering exceptional quality in our services, continuously improving our processes, and exceeding client expectations.</p>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service-category">Service Category</label>
+                        <select id="service-category" name="service-category" class="form-control" required>
+                            <option value="">Select a category</option>
+                            <option value="Income Tax">Income Tax</option>
+                            <option value="GST">GST</option>
+                            <option value="Banking">Banking</option>
+                            <option value="Insurance">Insurance</option>
+                            <option value="Internship">Internship</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Service Type</label>
+                        <select id="service" name="service" class="form-control" required>
+                            <option value="">Select a service</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Additional Information</label>
+                        <textarea id="message" name="message" class="form-control" rows="4"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-block" id="submit-button">Submit Request</button>
+                </form>
+                
+                <div class="loading-indicator" id="loading-indicator">
+                    <div class="spinner"></div>
+                    <p>Submitting your request...</p>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Client Focus</h3>
-                    <p>We prioritize understanding our clients' unique needs and challenges, tailoring our solutions to help them achieve their specific goals.</p>
+                
+                <div class="success-message" id="success-message">
+                    <h3>Thank you for your submission!</h3>
+                    <p>We have received your request and will contact you shortly.</p>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Innovation</h3>
-                    <p>We embrace new technologies and methodologies to provide cutting-edge solutions that keep our clients ahead in a rapidly changing business environment.</p>
+                
+                <div class="error-message" id="error-message">
+                    <h3>Oops! Something went wrong.</h3>
+                    <p>There was an error submitting your request. Please try again later or contact us directly.</p>
+                    <div id="error-details"></div>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Teamwork</h3>
-                    <p>We believe in the power of collaboration, leveraging our diverse expertise to deliver comprehensive solutions to complex challenges.</p>
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <button type="button" onclick="backToAbout()" class="btn btn-secondary">Back to About Us</button>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3>Continuous Learning</h3>
-                    <p>We are dedicated to ongoing professional development, staying updated with the latest regulations, technologies, and best practices in our field.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="team-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Meet Our Team</h2>
-                <p>The experts behind our success</p>
-            </div>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="member-image">
-                        <img src="/placeholder.svg?height=250&width=250" alt="Rajesh Kumar">
-                    </div>
-                    <div class="member-info">
-                        <h3>Rajesh Kumar</h3>
-                        <p>Founder & CEO</p>
-                        <div class="member-social">
-                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="member-image">
-                        <img src="/placeholder.svg?height=250&width=250" alt="Priya Sharma">
-                    </div>
-                    <div class="member-info">
-                        <h3>Priya Sharma</h3>
-                        <p>Tax Director</p>
-                        <div class="member-social">
-                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="member-image">
-                        <img src="/placeholder.svg?height=250&width=250" alt="Amit Patel">
-                    </div>
-                    <div class="member-info">
-                        <h3>Amit Patel</h3>
-                        <p>Accounting Manager</p>
-                        <div class="member-social">
-                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-member">
-                    <div class="member-image">
-                        <img src="/placeholder.svg?height=250&width=250" alt="Neha Gupta">
-                    </div>
-                    <div class="member-info">
-                        <h3>Neha Gupta</h3>
-                        <p>GST Specialist</p>
-                        <div class="member-social">
-                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Achievements Section -->
-    <section class="achievements-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Achievements</h2>
-                <p>Milestones that mark our journey of excellence</p>
-            </div>
-            <div class="achievements-grid">
-                <div class="achievement-card">
-                    <div class="achievement-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="achievement-number">1,500+</div>
-                    <div class="achievement-text">Satisfied Clients</div>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">
-                        <i class="fas fa-project-diagram"></i>
-                    </div>
-                    <div class="achievement-number">3,000+</div>
-                    <div class="achievement-text">Business Clients</div>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <div class="achievement-number">150+</div>
-                    <div class="achievement-text">Educational Institution</div>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <div class="achievement-number">10,000+</div>
-                    <div class="achievement-text">Salaried Employees</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Client Testimonials</h2>
-                <p>What our clients say about us</p>
-            </div>
-            <div class="testimonials-container">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">eAuditoroffice has been instrumental in streamlining our financial processes. Their expertise in tax planning has saved us significant amounts and their proactive approach keeps us ahead of compliance requirements.</p>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="/placeholder.svg?height=50&width=50" alt="Vikram Singh">
-                        </div>
-                        <div class="author-info">
-                            <h4>Vikram Singh</h4>
-                            <p>CEO, TechSolutions India</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">As a startup founder, navigating the complex world of business registration and compliance was overwhelming. The team at eAuditoroffice guided us through every step, making the process smooth and hassle-free.</p>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="/placeholder.svg?height=50&width=50" alt="Ananya Desai">
-                        </div>
-                        <div class="author-info">
-                            <h4>Ananya Desai</h4>
-                            <p>Founder, GreenEarth Organics</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">We've been working with eAuditoroffice for over 5 years now, and their service has been consistently excellent. Their team is responsive, knowledgeable, and genuinely cares about our business success.</p>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="/placeholder.svg?height=50&width=50" alt="Rahul Mehta">
-                        </div>
-                        <div class="author-info">
-                            <h4>Rahul Mehta</h4>
-                            <p>Director, Global Exports Ltd.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Transform Your Business?</h2>
-                <p>Let our expert team help you navigate the complexities of accounting, taxation, and business compliance.</p>
-                <a href="contact.html" class="btn-white">Contact Us Today</a>
             </div>
         </div>
     </section>
@@ -1252,41 +884,171 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-column">
                     <h3>About Us</h3>
                     <p>eAuditoroffice provides professional accounting, tax, and business management services to help your business thrive.</p>
                 </div>
-                
                 <div class="footer-column">
                     <h3>Quick Links</h3>
-                    <ul>
+                    <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="about-us.html">About Us</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-column">
                     <h3>Contact Us</h3>
-                    <ul>
+                    <div class="contact-info">
                         <p>92, Angammal Colony,<br>TVS Bus-top Near Pothys,<br>Salem - 636 009</p>
                         <p>98427 44500<br>98428 44500<br>0427-4043500</p>
-                        <li>auditorpaulraj@gmail.com</li>
-                    </ul>
+                        <p>auditorpaulraj@gmail.com</p>
+                    </div>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>© 2023 eAuditoroffice. All Rights Reserved.</p>
+                <p>© 2025 eAuditor Office. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu handling
+        // Service data
+        const serviceData = {
+            'Income Tax': [
+                'Income Tax Services',
+                'Income Tax Returns Filings',
+                'Form 15CA & Form 15CB',
+                'NRI Income Tax Planning & Filing',
+                'NSDL Services',
+                'PAN Application',
+                'TAN Application',
+                'Tax Deducted at Source'
+            ],
+            'GST': [
+                'GST Registration',
+                'GST Filing',
+                'GST Consultation'
+            ],
+            'Banking': [
+                'Banking Services',
+                'Loan Assistance',
+                'Financial Planning'
+            ],
+            'Insurance': [
+                'Life Insurance',
+                'Health Insurance',
+                'Business Insurance'
+            ],
+            'Internship': [
+                'Accounting Internship',
+                'Tax Internship',
+                'Finance Internship'
+            ]
+        };
+
+        // Google Sheets Web App URL - Replace with your deployed script URL
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwbhq_5JB6YPQqRui7L8494ztCPr-k99oZXIhauuDm5XK8AV42lgaL6dljq6IN2U7xiGQ/exec';
+
+        // Show the form when a service is clicked
+        function showForm(serviceType) {
+            document.getElementById('main-content').style.display = 'none';
+            document.getElementById('form-section').classList.add('active');
+            document.getElementById('form-title').textContent = serviceType + ' Service Request';
+            
+            let selectedCategory = '';
+            for (const category in serviceData) {
+                if (serviceData[category].includes(serviceType)) {
+                    selectedCategory = category;
+                    break;
+                }
+            }
+            
+            const categorySelect = document.getElementById('service-category');
+            for (let i = 0; i < categorySelect.options.length; i++) {
+                if (categorySelect.options[i].value === selectedCategory) {
+                    categorySelect.selectedIndex = i;
+                    break;
+                }
+            }
+            
+            updateServiceOptions(selectedCategory);
+            
+            const serviceSelect = document.getElementById('service');
+            for (let i = 0; i < serviceSelect.options.length; i++) {
+                if (serviceSelect.options[i].value === serviceType) {
+                    serviceSelect.selectedIndex = i;
+                    break;
+                }
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Update service options based on selected category
+        function updateServiceOptions(category) {
+            const serviceSelect = document.getElementById('service');
+            serviceSelect.innerHTML = '<option value="">Select a service</option>';
+            
+            if (category) {
+                serviceData[category].forEach(service => {
+                    const option = document.createElement('option');
+                    option.value = service;
+                    option.textContent = service;
+                    serviceSelect.appendChild(option);
+                });
+            }
+        }
+
+        // Go back to About Us
+        function backToAbout() {
+            document.getElementById('main-content').style.display = 'block';
+            document.getElementById('form-section').classList.remove('active');
+            document.getElementById('success-message').style.display = 'none';
+            document.getElementById('error-message').style.display = 'none';
+            document.getElementById('service-form').style.display = 'block';
+            document.getElementById('loading-indicator').style.display = 'none';
+            document.getElementById('service-form').reset();
+            document.getElementById('error-details').innerHTML = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Submit form data to Google Sheets
+        function submitFormData() {
+            document.getElementById('service-form').style.display = 'none';
+            document.getElementById('loading-indicator').style.display = 'block';
+            document.getElementById('success-message').style.display = 'none';
+            document.getElementById('error-message').style.display = 'none';
+            document.getElementById('error-details').innerHTML = '';
+            
+            const formData = new FormData();
+            formData.append('name', document.getElementById('name').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('phone', document.getElementById('phone').value);
+            formData.append('category', document.getElementById('service-category').value);
+            formData.append('service', document.getElementById('service').value);
+            formData.append('message', document.getElementById('message').value);
+            
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            })
+            .then(response => {
+                document.getElementById('loading-indicator').style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
+            })
+            .catch(error => {
+                document.getElementById('loading-indicator').style.display = 'none';
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('error-details').innerHTML = `<p>Error details: ${error.message}</p>`;
+                console.error('Error:', error);
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Handling
             const hamburger = document.querySelector('.hamburger');
             const mobileMenu = document.getElementById('mobile-menu');
             const closeBtn = mobileMenu.querySelector('.close-btn');
@@ -1336,6 +1098,17 @@
                         dropdownMenu.style.display = 'none';
                     }
                 });
+            });
+
+            // Form Handling
+            document.getElementById('service-category').addEventListener('change', function() {
+                updateServiceOptions(this.value);
+            });
+
+            // Form submission event
+            document.getElementById('service-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                submitFormData();
             });
         });
     </script>
