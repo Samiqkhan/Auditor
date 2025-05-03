@@ -13,7 +13,6 @@
             font-family: 'Arial', sans-serif;
         }
 
-
         body {
             background-color: #fff;
             color: #333;
@@ -206,6 +205,21 @@
             content: "▲";
         }
 
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
 
         /* Page Title Section */
         .page-title {
@@ -795,29 +809,21 @@
 
         @media (max-width: 768px) {
             .header-content {
-                flex-direction: column;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
             }
 
             .logo {
-                margin-bottom: 15px;
+                margin-bottom: 0;
             }
 
             nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            nav ul li {
-                margin: 0 10px 10px;
-            }
-
-            .dropdown-menu {
-                position: static;
-                box-shadow: none;
                 display: none;
-                min-width: auto;
-                margin-top: 10px;
-                background-color: #f8f9fa;
+            }
+
+            .hamburger {
+                display: block;
             }
 
             .page-title h1 {
@@ -848,7 +854,7 @@
         }
     </style>
 </head>
-<!-- Header -->
+<body>
     <!-- Header -->
     <header>
         <div class="container">
@@ -902,7 +908,7 @@
                                 <li><a href="#" onclick="showForm('Finance Internship')">Finance Internship</a></li>
                             </ul>
                         </li>
-                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="about-us.html" class="active">About Us</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
@@ -959,11 +965,12 @@
                     <li><a href="#" onclick="showForm('Finance Internship'); closeMobileMenu()">Finance Internship</a></li>
                 </ul>
             </li>
-            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="about-us.html" class="active">About Us</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </div>
     <div class="overlay" id="overlay"></div>
+
     <!-- Page Title -->
     <section class="page-title">
         <div class="container">
@@ -1277,36 +1284,59 @@
     </footer>
 
     <script>
-        // Mobile menu toggle for dropdown
+        // Mobile menu handling
         document.addEventListener('DOMContentLoaded', function() {
-            if (window.innerWidth <= 768) {
-                const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-                
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeBtn = mobileMenu.querySelector('.close-btn');
+            const overlay = document.getElementById('overlay');
+            const dropdownToggles = mobileMenu.querySelectorAll('.dropdown-toggle');
+
+            function openMobileMenu() {
+                mobileMenu.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+                // Close all dropdowns
                 dropdownToggles.forEach(toggle => {
-                    toggle.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const dropdownMenu = this.nextElementSibling;
-                        
-                        if (dropdownMenu.style.display === 'block') {
-                            dropdownMenu.style.display = 'none';
-                        } else {
-                            document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                                menu.style.display = 'none';
-                            });
-                            dropdownMenu.style.display = 'block';
-                        }
-                    });
+                    toggle.classList.remove('active');
+                    toggle.nextElementSibling.style.display = 'none';
                 });
             }
+
+            hamburger.addEventListener('click', openMobileMenu);
+            closeBtn.addEventListener('click', closeMobileMenu);
+            overlay.addEventListener('click', closeMobileMenu);
+
+            // Handle dropdowns in mobile menu
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const dropdownMenu = this.nextElementSibling;
+                    const isActive = this.classList.contains('active');
+
+                    // Close all other dropdowns
+                    dropdownToggles.forEach(otherToggle => {
+                        otherToggle.classList.remove('active');
+                        otherToggle.nextElementSibling.style.display = 'none';
+                    });
+
+                    // Toggle current dropdown
+                    if (!isActive) {
+                        this.classList.add('active');
+                        dropdownMenu.style.display = 'block';
+                    } else {
+                        this.classList.remove('active');
+                        dropdownMenu.style.display = 'none';
+                    }
+                });
+            });
         });
     </script>
 </body>
 </html>
-
-<Actions>
-  <Action name="Create a services page" description="Build a comprehensive services page showcasing all your offerings" />
-  <Action name="Add team member photos" description="Replace placeholder images with actual team member photos" />
-  <Action name="Create a blog section" description="Add a blog section to share industry insights and company news" />
-  <Action name="Add client logos" description="Create a section displaying logos of major clients" />
-  <Action name="Implement FAQ section" description="Add a frequently asked questions section to address common inquiries" />
-</Actions>
