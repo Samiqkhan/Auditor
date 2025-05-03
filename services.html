@@ -742,61 +742,65 @@
         }
 
         footer {
-            background-color: #333;
-            color: white;
+            background-color: #1f2937;
+            color: #e5e7eb;
             padding: 60px 0 30px;
         }
 
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 30px;
+        .footer-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         }
 
         .footer-column h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
             position: relative;
-            padding-bottom: 10px;
         }
 
         .footer-column h3::after {
             content: '';
             position: absolute;
             left: 0;
-            bottom: 0;
-            width: 50px;
+            bottom: -0.5rem;
+            width: 2rem;
             height: 2px;
             background-color: #2dd4bf;
         }
 
         .footer-column p {
-            margin-bottom: 15px;
-            color: #bbb;
+            color: #9ca3af;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
         }
 
-        .footer-column ul {
-            list-style: none;
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
-        .footer-column ul li {
-            margin-bottom: 10px;
+        .footer-links a {
+            color: #9ca3af;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
         }
 
-        .footer-column ul li a {
-            color: #bbb;
-            text-decoration: none;
-            transition: color 0.3s;
+        .footer-links a:hover {
+            color: white;
         }
 
-        .footer-column ul li a:hover {
-            color: #2dd4bf;
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .contact-info p {
+            color: #9ca3af;
         }
 
         .footer-bottom {
@@ -866,6 +870,7 @@
                 <nav>
                     <button class="hamburger"><i class="fas fa-bars"></i></button>
                     <ul>
+                        <li><a href="index.html">Home</a></li>
                         <li>
                             <a href="#" class="dropdown-toggle">Income Tax</a>
                             <ul class="dropdown-menu">
@@ -923,6 +928,7 @@
     <div class="mobile-menu" id="mobile-menu">
         <button class="close-btn"><i class="fas fa-times"></i></button>
         <ul>
+            <li><a href="index.html">Home</a></li>
             <li>
                 <a href="#" class="dropdown-toggle">Income Tax</a>
                 <ul class="dropdown-menu">
@@ -1430,33 +1436,27 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-column">
-                    <h3>eAuditor Office</h3>
-                    <p>Enabling entrepreneurs to stay legally compliant with comprehensive business services.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="services.html#new-business">New Business</a></li>
-                        <li><a href="services.html#gst">GST</a></li>
-                        <li><a href="services.html#income-tax">Income Tax</a></li>
-                    </ul>
+                    <h3>About Us</h3>
+                    <p>eAuditoroffice provides professional accounting, tax, and business management services to help your business thrive.</p>
                 </div>
                 <div class="footer-column">
                     <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contact Us</h3>
-                    <ul>
+                    <div class="contact-info">
                         <p>92, Angammal Colony,<br>TVS Bus-top Near Pothys,<br>Salem - 636 009</p>
                         <p>98427 44500<br>98428 44500<br>0427-4043500</p>
-                        <li>auditorpaulraj@gmail.com</li>
-                    </ul>
+                        <p>auditorpaulraj@gmail.com</p>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -1553,11 +1553,6 @@
             }
         }
 
-        // Handle category selection change
-        document.getElementById('service-category').addEventListener('change', function() {
-            updateServiceOptions(this.value);
-        });
-
         // Go back to services
         function backToServices() {
             document.getElementById('main-content').style.display = 'block';
@@ -1604,14 +1599,8 @@
             });
         }
 
-        // Form submission event
-        document.getElementById('service-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            submitFormData();
-        });
-
-        // Mobile menu handling
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Handling
             const hamburger = document.querySelector('.hamburger');
             const mobileMenu = document.getElementById('mobile-menu');
             const closeBtn = mobileMenu.querySelector('.close-btn');
@@ -1679,6 +1668,17 @@
                         faqItem.classList.add('active');
                     }
                 });
+            });
+
+            // Form Handling
+            document.getElementById('service-category').addEventListener('change', function() {
+                updateServiceOptions(this.value);
+            });
+
+            // Form submission event
+            document.getElementById('service-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                submitFormData();
             });
         });
     </script>
