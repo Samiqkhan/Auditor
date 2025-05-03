@@ -5,76 +5,1184 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eAuditor Office - Simplifying Your Entrepreneurial Journey</title>
     <meta name="description" content="Enabling entrepreneurs to stay legally compliant with business services, tax filing, and more.">
-    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #5a46e6;
+            --primary-hover: #4a38d6;
+            --secondary-color: #40e0d0;
+            --secondary-hover: #30d0c0;
+            --text-color: #333333;
+            --text-light: #666666;
+            --text-lighter: #999999;
+            --background-color: #ffffff;
+            --background-light: #f8f9fa;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --border-radius: 0.5rem;
+            --border-radius-lg: 1rem;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            line-height: 1.5;
+            background-color: var(--background-color);
+        }
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #eee;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #2dd4bf;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 10px 0;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            color: #2dd4bf;
+        }
+
+        nav ul li a.active {
+            color: #2dd4bf;
+            font-weight: 600;
+        }
+
+        .dropdown-toggle::after {
+            content: "▼";
+            font-size: 10px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            min-width: 250px;
+            display: none;
+            z-index: 101;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+        }
+
+        .dropdown-menu li a {
+            padding: 10px 15px;
+            display: block;
+            color: #666;
+            font-weight: normal;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #f8f9fa;
+            color: #2dd4bf;
+        }
+
+        nav ul li:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: #fff;
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu .close-btn {
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .mobile-menu ul {
+            flex-direction: column;
+            margin-top: 60px;
+        }
+
+        .mobile-menu ul li {
+            margin: 10px 0;
+        }
+
+        .mobile-menu ul li a {
+            font-size: 18px;
+            padding: 15px;
+            display: block;
+            color: #333;
+        }
+
+        .mobile-menu .dropdown-menu {
+            position: static;
+            box-shadow: none;
+            display: none;
+            background-color: #f8f9fa;
+            min-width: 100%;
+            margin-left: 20px;
+        }
+
+        .mobile-menu .dropdown-menu li a {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+
+        .mobile-menu .dropdown-toggle::after {
+            content: "▼";
+            float: right;
+            margin-top: 5px;
+        }
+
+        .mobile-menu .dropdown-toggle.active::after {
+            content: "▲";
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 4rem 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            color: var(--text-light);
+            font-size: 1.125rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 500;
+            border-radius: 9999px;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-hover);
+            color: white;
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button.secondary {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .cta-button.secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .stat-text {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .testimonial-link {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-line {
+            width: 2rem;
+            height: 2px;
+            background-color: var(--primary-color);
+            margin-right: 1rem;
+        }
+
+        .testimonial-link a {
+            color: var(--text-light);
+        }
+
+        .testimonial-link a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .process-illustration {
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-step {
+            position: absolute;
+            background-color: white;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        .process-step-1 {
+            top: 25%;
+            left: 25%;
+        }
+
+        .process-step-2 {
+            bottom: 33%;
+            right: 25%;
+        }
+
+        .process-step-3 {
+            bottom: 25%;
+            right: 16.67%;
+        }
+
+        .process-step-title {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .process-step-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .process-step-icons {
+            display: flex;
+            margin-top: 0.5rem;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .process-circle {
+            width: 2rem;
+            height: 2rem;
+            background-color: var(--secondary-color);
+            opacity: 0.5;
+            border-radius: 9999px;
+        }
+
+        .process-line {
+            width: 4rem;
+            height: 0.5rem;
+            background-color: var(--primary-color);
+            opacity: 0.5;
+            border-radius: 9999px;
+        }
+
+        .process-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: rgba(64, 224, 208, 0.2);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .process-icon-inner {
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: var(--secondary-color);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .process-icon-round {
+            border-radius: 9999px;
+        }
+
+        .process-icon-inner-round {
+            border-radius: 9999px;
+        }
+
+        .process-icon svg {
+            width: 1rem;
+            height: 1rem;
+            color: white;
+        }
+
+        /* How It Works Section */
+        .step-card {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            max-width: 300px;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .step-card:hover,
+        .step-card:active {
+            transform: scale(1.05);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-card h3 {
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .step-card p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .step-icon {
+            width: 60px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .step-card:hover .step-icon,
+        .step-card:active .step-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 4rem 0;
+            background-color: var(--background-light);
+        }
+
+        .services-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform: scale(1); /* initial scale */
+        }
+
+        .service-card:hover {
+            transform: scale(1.05); /* slightly enlarge on hover */
+            box-shadow: var(--shadow-md);
+        }
+
+        .service-icon {
+            margin-bottom: 1rem;
+        }
+
+        .service-icon .icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .arrow-icon {
+            width: 1rem;
+            height: 1rem;
+            margin-left: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .service-link:hover .arrow-icon {
+            transform: translateX(0.25rem);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 4rem 0;
+            background-color: var(--background-light);
+        }
+
+        .testimonial-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .testimonial-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 9999px;
+            background-color: white;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-button:hover {
+            background-color: var(--background-light);
+        }
+
+        .testimonial-button svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: var(--text-color);
+        }
+
+        .testimonial-slider {
+            display: grid;
+            gap: 1.5rem;
+            overflow: hidden;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+        }
+
+        .testimonial-rating {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .star {
+            position: relative;
+            display: inline-block;
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        .star::before {
+            content: '★';
+            position: absolute;
+            color: #e5e7eb;
+        }
+
+        .star.filled::before {
+            color: #fbbf24;
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .author-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-company {
+            font-size: 0.875rem;
+            color: var(--text-lighter);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 4rem 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .faq-question {
+            position: relative;
+            width: 100%;
+            padding: 1.5rem 2rem 1.5rem 0;
+            text-align: left;
+            font-weight: 500;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .faq-icon {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .faq-icon::before,
+        .faq-icon::after {
+            content: '';
+            position: absolute;
+            background-color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .faq-icon::before {
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            transform: translateY(-50%);
+        }
+
+        .faq-icon::after {
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            transform: translateX(-50%);
+        }
+
+        .faq-question.active .faq-icon::after {
+            opacity: 0;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 0 1.5rem;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        .faq-answer p {
+            color: var(--text-light);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .cta-button.primary {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .cta-button.primary:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1f2937;
+            color: #e5e7eb;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .footer h3 {
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer p {
+            color: #9ca3af;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            color: #9ca3af;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            color: white;
+        }
+
+        .social-link svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .contact-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #374151;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-legal a {
+            color: #9ca3af;
+        }
+
+        .footer-legal a:hover {
+            color: white;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: white;
+        }
+
+        .loading-content {
+            text-align: center;
+        }
+
+        .loading-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .loading-spinner {
+            position: relative;
+            width: 6rem;
+            height: 6rem;
+            margin: 0 auto;
+        }
+
+        .loading-circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 4px solid #f3f4f6;
+            border-radius: 50%;
+        }
+
+        .loading-circle-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 4px solid transparent;
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Media Queries */
+        @media (min-width: 640px) {
+            .cta-buttons {
+                flex-direction: row;
+            }
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.25rem;
+            }
+            
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .testimonial-slider {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .footer-legal {
+                flex-direction: row;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .desktop-nav {
+                display: block;
+            }
+            
+            .mobile-menu-button {
+                display: none;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .steps-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .testimonial-slider {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-button {
+                display: block;
+            }
+            
+            .mobile-menu.active {
+                display: block;
+            }
+            
+            .mobile-dropdown-content {
+                padding-left: 1rem;
+                display: none;
+            }
+            
+            .mobile-dropdown-content.active {
+                display: block;
+            }
+            
+            .mobile-dropdown-button {
+                width: 100%;
+                text-align: left;
+                padding: 0.75rem 0;
+            }
+            
+            .mobile-dropdown-icon {
+                float: right;
+                transition: transform 0.3s;
+            }
+            
+            .mobile-dropdown-button.active .mobile-dropdown-icon {
+                transform: rotate(180deg);
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header/Navigation -->
-    <header class="header">
-        <div class="container header-container">
-            <div class="logo">
-                <a href="index.html">
-                    <span class="logo-e">e</span><span class="logo-auditor">Auditor</span><span class="logo-office">office</span>
-                </a>
-            </div>
-            
-            <nav class="desktop-nav">
-                <ul class="nav-list">
-                    <li class="nav-item dropdown">
-                        <a href="services.html" class="nav-link">Services <span class="dropdown-icon">▼</span></a>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-content">
-                                <a href="services.html#new-business" class="dropdown-item">
-                                    <div class="dropdown-item-title">New Business</div>
-                                    <div class="dropdown-item-description">Register your business with ease</div>
-                                </a>
-                                <a href="services.html#gst" class="dropdown-item">
-                                    <div class="dropdown-item-title">GST</div>
-                                    <div class="dropdown-item-description">GST registration and filing services</div>
-                                </a>
-                                <a href="services.html#income-tax" class="dropdown-item">
-                                    <div class="dropdown-item-title">Income Tax</div>
-                                    <div class="dropdown-item-description">Income tax filing and planning</div>
-                                </a>
-                            </div>
-                        </div>
+    
+   <!-- Header -->
+   <header>
+    <div class="container">
+        <div class="header-content">
+            <a href="index.html" class="logo"><span>e</span>Auditoroffice</a>
+            <nav>
+                <button class="hamburger"><i class="fas fa-bars"></i></button>
+                <ul>
+                    <li>
+                        <a href="#" class="dropdown-toggle">Income Tax</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="showForm('Income Tax Services')">Income Tax Services</a></li>
+                            <li><a href="#" onclick="showForm('Income Tax Returns Filings')">Income Tax Returns Filings</a></li>
+                            <li><a href="#" onclick="showForm('Form 15CA & Form 15CB')">Form 15CA & Form 15CB</a></li>
+                            <li><a href="#" onclick="showForm('NRI Income Tax Planning & Filing')">NRI Income Tax Planning & Filing</a></li>
+                            <li><a href="#" onclick="showForm('NSDL Services')">NSDL Services</a></li>
+                            <li><a href="#" onclick="showForm('PAN Application')">PAN Application</a></li>
+                            <li><a href="#" onclick="showForm('TAN Application')">TAN Application</a></li>
+                            <li><a href="#" onclick="showForm('Tax Deducted at Source')">Tax Deducted at Source</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a href="about.html" class="nav-link">About Us</a>
+                    <li>
+                        <a href="#" class="dropdown-toggle">GST</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="showForm('GST Registration')">GST Registration</a></li>
+                            <li><a href="#" onclick="showForm('GST Filing')">GST Filing</a></li>
+                            <li><a href="#" onclick="showForm('GST Consultation')">GST Consultation</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Contact</a>
+                    <li>
+                        <a href="#" class="dropdown-toggle">Banking</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="showForm('Banking Services')">Banking Services</a></li>
+                            <li><a href="#" onclick="showForm('Loan Assistance')">Loan Assistance</a></li>
+                            <li><a href="#" onclick="showForm('Financial Planning')">Financial Planning</a></li>
+                        </ul>
                     </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">Insurance</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="showForm('Life Insurance')">Life Insurance</a></li>
+                            <li><a href="#" onclick="showForm('Health Insurance')">Health Insurance</a></li>
+                            <li><a href="#" onclick="showForm('Business Insurance')">Business Insurance</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">Internship</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="showForm('Accounting Internship')">Accounting Internship</a></li>
+                            <li><a href="#" onclick="showForm('Tax Internship')">Tax Internship</a></li>
+                            <li><a href="#" onclick="showForm('Finance Internship')">Finance Internship</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
-            
-            <button class="mobile-menu-button" aria-label="Toggle menu">
-                <span class="menu-icon"></span>
-            </button>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <div class="container">
-                <div class="mobile-menu-item">
-                    <button class="mobile-dropdown-button">
-                        Services <span class="mobile-dropdown-icon">▼</span>
-                    </button>
-                    <div class="mobile-dropdown-content">
-                        <a href="services.html#new-business">New Business</a>
-                        <a href="services.html#gst">GST</a>
-                        <a href="services.html#income-tax">Income Tax</a>
-                    </div>
-                </div>
-                <div class="mobile-menu-item">
-                    <a href="about.html">About Us</a>
-                </div>
-                <div class="mobile-menu-item">
-                    <a href="contact.html">Contact</a>
-                </div>
-            </div>
-        </div>
-    </header>
+    </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+    <button class="close-btn"><i class="fas fa-times"></i></button>
+    <ul>
+        <li>
+            <a href="#" class="dropdown-toggle">Income Tax</a>
+            <ul class="dropdown-menu">
+                <li><a href="#" onclick="showForm('Income Tax Services'); closeMobileMenu()">Income Tax Services</a></li>
+                <li><a href="#" onclick="showForm('Income Tax Returns Filings'); closeMobileMenu()">Income Tax Returns Filings</a></li>
+                <li><a href="#" onclick="showForm('Form 15CA & Form 15CB'); closeMobileMenu()">Form 15CA & Form 15CB</a></li>
+                <li><a href="#" onclick="showForm('NRI Income Tax Planning & Filing'); closeMobileMenu()">NRI Income Tax Planning & Filing</a></li>
+                <li><a href="#" onclick="showForm('NSDL Services'); closeMobileMenu()">NSDL Services</a></li>
+                <li><a href="#" onclick="showForm('PAN Application'); closeMobileMenu()">PAN Application</a></li>
+                <li><a href="#" onclick="showForm('TAN Application'); closeMobileMenu()">TAN Application</a></li>
+                <li><a href="#" onclick="showForm('Tax Deducted at Source'); closeMobileMenu()">Tax Deducted at Source</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="dropdown-toggle">GST</a>
+            <ul class="dropdown-menu">
+                <li><a href="#" onclick="showForm('GST Registration'); closeMobileMenu()">GST Registration</a></li>
+                <li><a href="#" onclick="showForm('GST Filing'); closeMobileMenu()">GST Filing</a></li>
+                <li><a href="#" onclick="showForm('GST Consultation'); closeMobileMenu()">GST Consultation</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="dropdown-toggle">Banking</a>
+            <ul class="dropdown-menu">
+                <li><a href="#" onclick="showForm('Banking Services'); closeMobileMenu()">Banking Services</a></li>
+                <li><a href="#" onclick="showForm('Loan Assistance'); closeMobileMenu()">Loan Assistance</a></li>
+                <li><a href="#" onclick="showForm('Financial Planning'); closeMobileMenu()">Financial Planning</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="dropdown-toggle">Insurance</a>
+            <ul class="dropdown-menu">
+                <li><a href="#" onclick="showForm('Life Insurance'); closeMobileMenu()">Life Insurance</a></li>
+                <li><a href="#" onclick="showForm('Health Insurance'); closeMobileMenu()">Health Insurance</a></li>
+                <li><a href="#" onclick="showForm('Business Insurance'); closeMobileMenu()">Business Insurance</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="dropdown-toggle">Internship</a>
+            <ul class="dropdown-menu">
+                <li><a href="#" onclick="showForm('Accounting Internship'); closeMobileMenu()">Accounting Internship</a></li>
+                <li><a href="#" onclick="showForm('Tax Internship'); closeMobileMenu()">Tax Internship</a></li>
+                <li><a href="#" onclick="showForm('Finance Internship'); closeMobileMenu()">Finance Internship</a></li>
+            </ul>
+        </li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</div>
+<div class="overlay" id="overlay"></div>
 
     <main>
         <!-- Hero Section -->
@@ -498,6 +1606,156 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('active');
+                    
+                    // Toggle menu icon (hamburger to X)
+                    const menuIcon = this.querySelector('.menu-icon');
+                    if (menuIcon) {
+                        menuIcon.classList.toggle('active');
+                    }
+                });
+            }
+            
+            // Mobile Dropdown Toggles
+            const mobileDropdownButtons = document.querySelectorAll('.mobile-dropdown-button');
+            
+            mobileDropdownButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    this.classList.toggle('active');
+                    
+                    // Find the next sibling which is the dropdown content
+                    const dropdownContent = this.nextElementSibling;
+                    if (dropdownContent && dropdownContent.classList.contains('mobile-dropdown-content')) {
+                        dropdownContent.classList.toggle('active');
+                    }
+                });
+            });
+            
+            // FAQ Accordion
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    
+                    // Find the next sibling which is the answer
+                    const answer = this.nextElementSibling;
+                    if (answer && answer.classList.contains('faq-answer')) {
+                        answer.classList.toggle('active');
+                    }
+                });
+            });
+            
+            // Testimonial Carousel
+            const testimonialSlider = document.querySelector('.testimonial-slider');
+            const prevButton = document.querySelector('.prev-button');
+            const nextButton = document.querySelector('.next-button');
+            
+            if (testimonialSlider && prevButton && nextButton) {
+                let currentIndex = 0;
+                const testimonials = testimonialSlider.querySelectorAll('.testimonial-card');
+                const totalTestimonials = testimonials.length;
+                
+                // Function to update the visible testimonials based on screen size
+                function updateVisibleTestimonials() {
+                    const windowWidth = window.innerWidth;
+                    let visibleCount = 1;
+                    
+                    if (windowWidth >= 1024) {
+                        visibleCount = 3;
+                    } else if (windowWidth >= 768) {
+                        visibleCount = 2;
+                    }
+                    
+                    // Hide all testimonials first
+                    testimonials.forEach(testimonial => {
+                        testimonial.style.display = 'none';
+                    });
+                    
+                    // Show the visible ones
+                    for (let i = 0; i < visibleCount; i++) {
+                        const index = (currentIndex + i) % totalTestimonials;
+                        testimonials[index].style.display = 'block';
+                    }
+                }
+                
+                // Initialize
+                updateVisibleTestimonials();
+                
+                // Previous button click
+                prevButton.addEventListener('click', function() {
+                    currentIndex = (currentIndex - 1 + totalTestimonials) % totalTestimonials;
+                    updateVisibleTestimonials();
+                });
+                
+                // Next button click
+                nextButton.addEventListener('click', function() {
+                    currentIndex = (currentIndex + 1) % totalTestimonials;
+                    updateVisibleTestimonials();
+                });
+                
+                // Update on window resize
+                window.addEventListener('resize', updateVisibleTestimonials);
+            }
+            
+            // Process Steps Animation
+            const processSteps = document.querySelectorAll('.process-step');
+            
+            if (processSteps.length > 0) {
+                // Add animation classes with delay
+                processSteps.forEach((step, index) => {
+                    setTimeout(() => {
+                        step.classList.add('animate');
+                    }, index * 200);
+                });
+            }
+            
+            // Form Validation
+            const contactForm = document.querySelector('.contact-form');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Simple validation
+                    let isValid = true;
+                    const requiredFields = this.querySelectorAll('input, textarea');
+                    
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            isValid = false;
+                            field.classList.add('error');
+                        } else {
+                            field.classList.remove('error');
+                        }
+                    });
+                    
+                    if (isValid) {
+                        // Form is valid, you can submit it or show success message
+                        alert('Thank you for your message. We will get back to you soon!');
+                        this.reset();
+                    } else {
+                        alert('Please fill in all required fields.');
+                    }
+                });
+            }
+
+            // Service Form Display Function
+            window.showForm = function(formName) {
+                // Placeholder for form display logic
+                alert(`Showing form for: ${formName}`);
+                // You can implement actual form display logic here
+            };
+        });
+    </script>
 </body>
 </html>
