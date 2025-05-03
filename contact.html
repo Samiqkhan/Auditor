@@ -410,6 +410,14 @@
             resize: vertical;
         }
 
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 15px;
+        }
+
         .btn {
             display: inline-block;
             background-color: #2dd4bf;
@@ -430,6 +438,14 @@
         .btn-block {
             display: block;
             width: 100%;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
         }
 
         .loading-indicator {
@@ -493,63 +509,103 @@
             border: none;
         }
 
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 60px 0 30px;
+        /* Form Section */
+        .form-section {
+            display: none;
+            padding: 60px 0;
+            background-color: #f8f9fa;
         }
 
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+        .form-section.active {
+            display: block;
         }
 
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-header {
+            text-align: center;
             margin-bottom: 30px;
         }
 
+        .form-header h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .form-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f2937;
+            color: #e5e7eb;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
         .footer-column h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
             position: relative;
-            padding-bottom: 10px;
         }
 
         .footer-column h3::after {
             content: '';
             position: absolute;
             left: 0;
-            bottom: 0;
-            width: 50px;
+            bottom: -0.5rem;
+            width: 2rem;
             height: 2px;
             background-color: #2dd4bf;
         }
 
         .footer-column p {
-            margin-bottom: 15px;
-            color: #bbb;
+            color: #9ca3af;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
         }
 
-        .footer-column ul {
-            list-style: none;
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
-        .footer-column ul li {
-            margin-bottom: 10px;
+        .footer-links a {
+            color: #9ca3af;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
         }
 
-        .footer-column ul li a {
-            color: #bbb;
-            text-decoration: none;
-            transition: color 0.3s;
+        .footer-links a:hover {
+            color: white;
         }
 
-        .footer-column ul li a:hover {
-            color: #2dd4bf;
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .contact-info p {
+            color: #9ca3af;
         }
 
         .footer-bottom {
@@ -621,6 +677,7 @@
                 <nav>
                     <button class="hamburger"><i class="fas fa-bars"></i></button>
                     <ul>
+                        <li><a href="index.html">Home</a></li>
                         <li>
                             <a href="#" class="dropdown-toggle">Income Tax</a>
                             <ul class="dropdown-menu">
@@ -678,6 +735,7 @@
     <div class="mobile-menu" id="mobile-menu">
         <button class="close-btn"><i class="fas fa-times"></i></button>
         <ul>
+            <li><a href="index.html">Home</a></li>
             <li>
                 <a href="#" class="dropdown-toggle">Income Tax</a>
                 <ul class="dropdown-menu">
@@ -729,132 +787,209 @@
     </div>
     <div class="overlay" id="overlay"></div>
 
-    <!-- Page Title -->
-    <section class="page-title">
-        <div class="container">
-            <h1>Contact Us</h1>
-            <p>Get in touch with our expert team for any inquiries or assistance</p>
-        </div>
-    </section>
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Page Title -->
+        <section class="page-title">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Get in touch with our expert team for any inquiries or assistance</p>
+            </div>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>Get In Touch</h2>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Get In Touch</h2>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Our Office</h4>
+                                    <p>92, Angammal Colony,<br>TVS Bus-top Near Pothys,<br>Salem - 636 009</p>
+                                </div>
                             </div>
-                            <div class="contact-text">
-                                <h4>Our Office</h4>
-                                <p>92, Angammal Colony,<br>TVS Bus-top Near Pothys,<br>Salem - 636 009</p>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Phone</h4>
+                                    <p>98427 44500<br>98428 44500<br>0427-4043500</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Email</h4>
+                                    <p>auditorpaulraj@gmail.com</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Phone</h4>
-                                <p>98427 44500<br>98428 44500<br>0427-4043500</p>
-                            </div>
+
+                        <div class="office-hours">
+                            <h3>Office Hours</h3>
+                            <table class="hours-table">
+                                <tr>
+                                    <td>Monday - Friday</td>
+                                    <td>9:00 AM - 6:00 PM</td>
+                                </tr>
+                                <tr>
+                                    <td>Saturday</td>
+                                    <td>10:00 AM - 4:00 PM</td>
+                                </tr>
+                                <tr>
+                                    <td>Sunday</td>
+                                    <td>Closed</td>
+                                </tr>
+                            </table>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <p>auditorpaulraj@gmail.com</p>
-                            </div>
+
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
 
-                    <div class="office-hours">
-                        <h3>Office Hours</h3>
-                        <table class="hours-table">
-                            <tr>
-                                <td>Monday - Friday</td>
-                                <td>9:00 AM - 6:00 PM</td>
-                            </tr>
-                            <tr>
-                                <td>Saturday</td>
-                                <td>10:00 AM - 4:00 PM</td>
-                            </tr>
-                            <tr>
-                                <td>Sunday</td>
-                                <td>Closed</td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-
-                <div class="contact-form-container">
-                    <h2>Send Us a Message</h2>
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
+                    <div class="contact-form-container">
+                        <h2>Send Us a Message</h2>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="contact-name">Full Name</label>
+                                <input type="text" id="contact-name" name="name" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" name="email" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-phone">Phone Number</label>
+                                <input type="tel" id="contact-phone" name="phone" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-subject">Subject</label>
+                                <input type="text" id="contact-subject" name="subject" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-message">Your Message</label>
+                                <textarea id="contact-message" name="message" class="form-control" rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-block">Send Message</button>
+                        </form>
+                        
+                        <div class="loading-indicator" id="contact-loading-indicator">
+                            <div class="spinner"></div>
+                            <p>Sending your message...</p>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
+                        <div class="success-message" id="contact-success-message">
+                            <h3>Thank you for your message!</h3>
+                            <p>We have received your inquiry and will get back to you shortly.</p>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        <div class="error-message" id="contact-error-message">
+                            <h3>Oops! Something went wrong.</h3>
+                            <p>There was an error sending your message. Please try again later or contact us directly.</p>
+                            <div id="contact-error-details"></div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-block">Send Message</button>
-                    </form>
-                    
-                    <div class="loading-indicator" id="loading-indicator">
-                        <div class="spinner"></div>
-                        <p>Sending your message...</p>
-                    </div>
-                    
-                    <div class="success-message" id="success-message">
-                        <h3>Thank you for your message!</h3>
-                        <p>We have received your inquiry and will get back to you shortly.</p>
-                    </div>
-                    
-                    <div class="error-message" id="error-message">
-                        <h3>Oops! Something went wrong.</h3>
-                        <p>There was an error sending your message. Please try again later or contact us directly.</p>
-                        <div id="error-details"></div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Map Section -->
-    <section class="map-section">
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="container">
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224346.54005639663!2d77.04417285!3d28.527758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1651825201018!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Service Request Form Section -->
+    <section class="form-section" id="form-section">
         <div class="container">
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224346.54005639663!2d77.04417285!3d28.527758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1651825201018!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+            <div class="form-container">
+                <div class="form-header">
+                    <h2 id="form-title">Service Request Form</h2>
+                    <p>Please fill out the form below and our team will get back to you shortly.</p>
+                </div>
+                <form id="service-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service-category">Service Category</label>
+                        <select id="service-category" name="service-category" class="form-control" required>
+                            <option value="">Select a category</option>
+                            <option value="Income Tax">Income Tax</option>
+                            <option value="GST">GST</option>
+                            <option value="Banking">Banking</option>
+                            <option value="Insurance">Insurance</option>
+                            <option value="Internship">Internship</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Service Type</label>
+                        <select id="service" name="service" class="form-control" required>
+                            <option value="">Select a service</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Additional Information</label>
+                        <textarea id="message" name="message" class="form-control" rows="4"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-block" id="submit-button">Submit Request</button>
+                </form>
+                
+                <div class="loading-indicator" id="loading-indicator">
+                    <div class="spinner"></div>
+                    <p>Submitting your request...</p>
+                </div>
+                
+                <div class="success-message" id="success-message">
+                    <h3>Thank you for your submission!</h3>
+                    <p>We have received your request and will contact you shortly.</p>
+                </div>
+                
+                <div class="error-message" id="error-message">
+                    <h3>Oops! Something went wrong.</h3>
+                    <p>There was an error submitting your request. Please try again later or contact us directly.</p>
+                    <div id="error-details"></div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <button type="button" onclick="backToContact()" class="btn btn-secondary">Back to Contact</button>
+                </div>
             </div>
         </div>
     </section>
@@ -862,44 +997,205 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-column">
                     <h3>About Us</h3>
                     <p>eAuditoroffice provides professional accounting, tax, and business management services to help your business thrive.</p>
                 </div>
-                
                 <div class="footer-column">
                     <h3>Quick Links</h3>
-                    <ul>
+                    <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="about-us.html">About Us</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-column">
                     <h3>Contact Us</h3>
-                    <ul>
+                    <div class="contact-info">
                         <p>92, Angammal Colony,<br>TVS Bus-top Near Pothys,<br>Salem - 636 009</p>
                         <p>98427 44500<br>98428 44500<br>0427-4043500</p>
-                        <li>auditorpaulraj@gmail.com</li>
-                    </ul>
+                        <p>auditorpaulraj@gmail.com</p>
+                    </div>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>© 2025 eAuditoroffice. All Rights Reserved.</p>
+                <p>© 2025 eAuditor Office. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Google Sheets Web App URL - Replace with your deployed script URL
+        // Service data
+        const serviceData = {
+            'Income Tax': [
+                'Income Tax Services',
+                'Income Tax Returns Filings',
+                'Form 15CA & Form 15CB',
+                'NRI Income Tax Planning & Filing',
+                'NSDL Services',
+                'PAN Application',
+                'TAN Application',
+                'Tax Deducted at Source'
+            ],
+            'GST': [
+                'GST Registration',
+                'GST Filing',
+                'GST Consultation'
+            ],
+            'Banking': [
+                'Banking Services',
+                'Loan Assistance',
+                'Financial Planning'
+            ],
+            'Insurance': [
+                'Life Insurance',
+                'Health Insurance',
+                'Business Insurance'
+            ],
+            'Internship': [
+                'Accounting Internship',
+                'Tax Internship',
+                'Finance Internship'
+            ]
+        };
+
+        // Google Sheets Web App URL
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwbhq_5JB6YPQqRui7L8494ztCPr-k99oZXIhauuDm5XK8AV42lgaL6dljq6IN2U7xiGQ/exec';
 
-        // Mobile menu handling
+        // Show the service request form when a service is clicked
+        function showForm(serviceType) {
+            document.getElementById('main-content').style.display = 'none';
+            document.getElementById('form-section').classList.add('active');
+            document.getElementById('form-title').textContent = serviceType + ' Service Request';
+            
+            let selectedCategory = '';
+            for (const category in serviceData) {
+                if (serviceData[category].includes(serviceType)) {
+                    selectedCategory = category;
+                    break;
+                }
+            }
+            
+            const categorySelect = document.getElementById('service-category');
+            for (let i = 0; i < categorySelect.options.length; i++) {
+                if (categorySelect.options[i].value === selectedCategory) {
+                    categorySelect.selectedIndex = i;
+                    break;
+                }
+            }
+            
+            updateServiceOptions(selectedCategory);
+            
+            const serviceSelect = document.getElementById('service');
+            for (let i = 0; i < serviceSelect.options.length; i++) {
+                if (serviceSelect.options[i].value === serviceType) {
+                    serviceSelect.selectedIndex = i;
+                    break;
+                }
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Update service options based on selected category
+        function updateServiceOptions(category) {
+            const serviceSelect = document.getElementById('service');
+            serviceSelect.innerHTML = '<option value="">Select a service</option>';
+            
+            if (category) {
+                serviceData[category].forEach(service => {
+                    const option = document.createElement('option');
+                    option.value = service;
+                    option.textContent = service;
+                    serviceSelect.appendChild(option);
+                });
+            }
+        }
+
+        // Go back to contact page
+        function backToContact() {
+            document.getElementById('main-content').style.display = 'block';
+            document.getElementById('form-section').classList.remove('active');
+            document.getElementById('success-message').style.display = 'none';
+            document.getElementById('error-message').style.display = 'none';
+            document.getElementById('service-form').style.display = 'block';
+            document.getElementById('loading-indicator').style.display = 'none';
+            document.getElementById('service-form').reset();
+            document.getElementById('error-details').innerHTML = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Submit service form data to Google Sheets
+        function submitServiceForm() {
+            document.getElementById('service-form').style.display = 'none';
+            document.getElementById('loading-indicator').style.display = 'block';
+            document.getElementById('success-message').style.display = 'none';
+            document.getElementById('error-message').style.display = 'none';
+            document.getElementById('error-details').innerHTML = '';
+            
+            const formData = new FormData();
+            formData.append('name', document.getElementById('name').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('phone', document.getElementById('phone').value);
+            formData.append('category', document.getElementById('service-category').value);
+            formData.append('service', document.getElementById('service').value);
+            formData.append('message', document.getElementById('message').value);
+            formData.append('form_type', 'service');
+            
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            })
+            .then(response => {
+                document.getElementById('loading-indicator').style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
+            })
+            .catch(error => {
+                document.getElementById('loading-indicator').style.display = 'none';
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('error-details').innerHTML = `<p>Error details: ${error.message}</p>`;
+                console.error('Error:', error);
+            });
+        }
+
+        // Submit contact form data to Google Sheets
+        function submitContactForm() {
+            document.getElementById('contact-form').style.display = 'none';
+            document.getElementById('contact-loading-indicator').style.display = 'block';
+            document.getElementById('contact-success-message').style.display = 'none';
+            document.getElementById('contact-error-message').style.display = 'none';
+            document.getElementById('contact-error-details').innerHTML = '';
+            
+            const formData = new FormData();
+            formData.append('name', document.getElementById('contact-name').value);
+            formData.append('email', document.getElementById('contact-email').value);
+            formData.append('phone', document.getElementById('contact-phone').value);
+            formData.append('subject', document.getElementById('contact-subject').value);
+            formData.append('message', document.getElementById('contact-message').value);
+            formData.append('form_type', 'contact');
+            
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            })
+            .then(response => {
+                document.getElementById('contact-loading-indicator').style.display = 'none';
+                document.getElementById('contact-success-message').style.display = 'block';
+            })
+            .catch(error => {
+                document.getElementById('contact-loading-indicator').style.display = 'none';
+                document.getElementById('contact-error-message').style.display = 'block';
+                document.getElementById('contact-error-details').innerHTML = `<p>Error details: ${error.message}</p>`;
+                console.error('Error:', error);
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Handling
             const hamburger = document.querySelector('.hamburger');
             const mobileMenu = document.getElementById('mobile-menu');
             const closeBtn = mobileMenu.querySelector('.close-btn');
@@ -916,7 +1212,6 @@
                 mobileMenu.classList.remove('active');
                 overlay.classList.remove('active');
                 document.body.style.overflow = '';
-                // Close all dropdowns
                 dropdownToggles.forEach(toggle => {
                     toggle.classList.remove('active');
                     toggle.nextElementSibling.style.display = 'none';
@@ -934,13 +1229,11 @@
                     const dropdownMenu = this.nextElementSibling;
                     const isActive = this.classList.contains('active');
 
-                    // Close all other dropdowns
                     dropdownToggles.forEach(otherToggle => {
                         otherToggle.classList.remove('active');
                         otherToggle.nextElementSibling.style.display = 'none';
                     });
 
-                    // Toggle current dropdown
                     if (!isActive) {
                         this.classList.add('active');
                         dropdownMenu.style.display = 'block';
@@ -951,50 +1244,22 @@
                 });
             });
 
-            // Form submission event
+            // Service Form Handling
+            document.getElementById('service-category').addEventListener('change', function() {
+                updateServiceOptions(this.value);
+            });
+
+            document.getElementById('service-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                submitServiceForm();
+            });
+
+            // Contact Form Handling
             document.getElementById('contact-form').addEventListener('submit', function(e) {
                 e.preventDefault();
                 submitContactForm();
             });
         });
-
-        // Submit contact form data to Google Sheets
-        function submitContactForm() {
-            // Show loading indicator
-            document.getElementById('contact-form').style.display = 'none';
-            document.getElementById('loading-indicator').style.display = 'block';
-            document.getElementById('success-message').style.display = 'none';
-            document.getElementById('error-message').style.display = 'none';
-            document.getElementById('error-details').innerHTML = '';
-            
-            // Get form data
-            const formData = new FormData();
-            formData.append('name', document.getElementById('name').value);
-            formData.append('email', document.getElementById('email').value);
-            formData.append('phone', document.getElementById('phone').value);
-            formData.append('subject', document.getElementById('subject').value);
-            formData.append('message', document.getElementById('message').value);
-            formData.append('form_type', 'contact'); // To differentiate from service forms
-            
-            // Use fetch API to submit the form
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors' // This is important to avoid CORS issues
-            })
-            .then(response => {
-                // Since we're using no-cors, we can't actually read the response
-                // So we'll just assume success if we get here
-                document.getElementById('loading-indicator').style.display = 'none';
-                document.getElementById('success-message').style.display = 'block';
-            })
-            .catch(error => {
-                document.getElementById('loading-indicator').style.display = 'none';
-                document.getElementById('error-message').style.display = 'block';
-                document.getElementById('error-details').innerHTML = `<p>Error details: ${error.message}</p>`;
-                console.error('Error:', error);
-            });
-        }
     </script>
 </body>
 </html>
