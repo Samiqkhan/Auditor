@@ -6,6 +6,7 @@
     <title>eAuditor Office - Simplifying Your Entrepreneurial Journey</title>
     <meta name="description" content="Enabling entrepreneurs to stay legally compliant with business services, tax filing, and more.">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Base Styles */
         :root {
@@ -39,6 +40,7 @@
             line-height: 1.5;
             background-color: var(--background-color);
         }
+
         a {
             text-decoration: none;
             color: var(--primary-color);
@@ -113,13 +115,6 @@
             top: 0;
             z-index: 100;
             border-bottom: 1px solid #eee;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
         }
 
         .header-content {
@@ -291,6 +286,22 @@
             content: "▲";
         }
 
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
         /* Hero Section */
         .hero-section {
             padding: 4rem 0;
@@ -386,102 +397,6 @@
             position: relative;
         }
 
-        .process-illustration {
-            position: relative;
-            z-index: 1;
-        }
-
-        .process-step {
-            position: absolute;
-            background-color: white;
-            padding: 1rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-md);
-        }
-
-        .process-step-1 {
-            top: 25%;
-            left: 25%;
-        }
-
-        .process-step-2 {
-            bottom: 33%;
-            right: 25%;
-        }
-
-        .process-step-3 {
-            bottom: 25%;
-            right: 16.67%;
-        }
-
-        .process-step-title {
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .process-step-content {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .process-step-icons {
-            display: flex;
-            margin-top: 0.5rem;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .process-circle {
-            width: 2rem;
-            height: 2rem;
-            background-color: var(--secondary-color);
-            opacity: 0.5;
-            border-radius: 9999px;
-        }
-
-        .process-line {
-            width: 4rem;
-            height: 0.5rem;
-            background-color: var(--primary-color);
-            opacity: 0.5;
-            border-radius: 9999px;
-        }
-
-        .process-icon {
-            width: 2.5rem;
-            height: 2.5rem;
-            background-color: rgba(64, 224, 208, 0.2);
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .process-icon-inner {
-            width: 1.5rem;
-            height: 1.5rem;
-            background-color: var(--secondary-color);
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .process-icon-round {
-            border-radius: 9999px;
-        }
-
-        .process-icon-inner-round {
-            border-radius: 9999px;
-        }
-
-        .process-icon svg {
-            width: 1rem;
-            height: 1rem;
-            color: white;
-        }
-
         /* How It Works Section */
         .step-card {
             text-align: center;
@@ -539,11 +454,10 @@
             border-radius: var(--border-radius);
             box-shadow: var(--shadow-sm);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            transform: scale(1); /* initial scale */
         }
 
         .service-card:hover {
-            transform: scale(1.05); /* slightly enlarge on hover */
+            transform: scale(1.05);
             box-shadow: var(--shadow-md);
         }
 
@@ -565,23 +479,6 @@
         .service-card p {
             color: var(--text-light);
             margin-bottom: 1rem;
-        }
-
-        .service-link {
-            display: inline-flex;
-            align-items: center;
-            font-weight: 500;
-        }
-
-        .arrow-icon {
-            width: 1rem;
-            height: 1rem;
-            margin-left: 0.5rem;
-            transition: var(--transition);
-        }
-
-        .service-link:hover .arrow-icon {
-            transform: translateX(0.25rem);
         }
 
         /* Testimonials Section */
@@ -805,41 +702,30 @@
         .footer-grid {
             display: grid;
             gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         }
 
-        .footer h3 {
+        .footer-column h3 {
             color: white;
             font-size: 1.25rem;
             margin-bottom: 1.5rem;
+            position: relative;
         }
 
-        .footer p {
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -0.5rem;
+            width: 2rem;
+            height: 2px;
+            background-color: #40e0d0;
+        }
+
+        .footer-column p {
             color: #9ca3af;
             margin-bottom: 1.5rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 2rem;
-            height: 2rem;
-            color: #9ca3af;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            color: white;
-        }
-
-        .social-link svg {
-            width: 1.25rem;
-            height: 1.25rem;
+            font-size: 0.875rem;
         }
 
         .footer-links {
@@ -850,7 +736,8 @@
 
         .footer-links a {
             color: #9ca3af;
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
         }
 
         .footer-links a:hover {
@@ -861,100 +748,11 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            font-size: 0.875rem;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-        }
-
-        .contact-icon {
-            width: 1.25rem;
-            height: 1.25rem;
-            flex-shrink: 0;
-            margin-top: 0.125rem;
-        }
-
-        .footer-bottom {
-            margin-top: 3rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #374151;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .footer-legal {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .footer-legal a {
+        .contact-info p {
             color: #9ca3af;
-        }
-
-        .footer-legal a:hover {
-            color: white;
-        }
-
-        /* Loading Screen */
-        .loading-screen {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background-color: white;
-        }
-
-        .loading-content {
-            text-align: center;
-        }
-
-        .loading-text {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .loading-spinner {
-            position: relative;
-            width: 6rem;
-            height: 6rem;
-            margin: 0 auto;
-        }
-
-        .loading-circle {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 4px solid #f3f4f6;
-            border-radius: 50%;
-        }
-
-        .loading-circle-inner {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 4px solid transparent;
-            border-top-color: var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
         }
 
         /* Media Queries */
@@ -989,31 +787,9 @@
             .testimonial-slider {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-bottom {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-            
-            .footer-legal {
-                flex-direction: row;
-                gap: 1.5rem;
-            }
         }
 
         @media (min-width: 1024px) {
-            .desktop-nav {
-                display: block;
-            }
-            
-            .mobile-menu-button {
-                display: none;
-            }
-            
             .services-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -1025,164 +801,147 @@
             .testimonial-slider {
                 grid-template-columns: repeat(3, 1fr);
             }
-            
-            .footer-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
         }
 
         @media (max-width: 768px) {
-            .mobile-menu-button {
-                display: block;
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
             }
-            
-            .mobile-menu.active {
-                display: block;
+
+            .logo {
+                margin-bottom: 0;
             }
-            
-            .mobile-dropdown-content {
-                padding-left: 1rem;
+
+            nav ul {
                 display: none;
             }
-            
-            .mobile-dropdown-content.active {
+
+            .hamburger {
                 display: block;
-            }
-            
-            .mobile-dropdown-button {
-                width: 100%;
-                text-align: left;
-                padding: 0.75rem 0;
-            }
-            
-            .mobile-dropdown-icon {
-                float: right;
-                transition: transform 0.3s;
-            }
-            
-            .mobile-dropdown-button.active .mobile-dropdown-icon {
-                transform: rotate(180deg);
             }
         }
     </style>
 </head>
 <body>
-    
-   <!-- Header -->
-   <header>
-    <div class="container">
-        <div class="header-content">
-            <a href="index.html" class="logo"><span>e</span>Auditoroffice</a>
-            <nav>
-                <button class="hamburger"><i class="fas fa-bars"></i></button>
-                <ul>
-                    <li>
-                        <a href="#" class="dropdown-toggle">Income Tax</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" onclick="showForm('Income Tax Services')">Income Tax Services</a></li>
-                            <li><a href="#" onclick="showForm('Income Tax Returns Filings')">Income Tax Returns Filings</a></li>
-                            <li><a href="#" onclick="showForm('Form 15CA & Form 15CB')">Form 15CA & Form 15CB</a></li>
-                            <li><a href="#" onclick="showForm('NRI Income Tax Planning & Filing')">NRI Income Tax Planning & Filing</a></li>
-                            <li><a href="#" onclick="showForm('NSDL Services')">NSDL Services</a></li>
-                            <li><a href="#" onclick="showForm('PAN Application')">PAN Application</a></li>
-                            <li><a href="#" onclick="showForm('TAN Application')">TAN Application</a></li>
-                            <li><a href="#" onclick="showForm('Tax Deducted at Source')">Tax Deducted at Source</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="dropdown-toggle">GST</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" onclick="showForm('GST Registration')">GST Registration</a></li>
-                            <li><a href="#" onclick="showForm('GST Filing')">GST Filing</a></li>
-                            <li><a href="#" onclick="showForm('GST Consultation')">GST Consultation</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="dropdown-toggle">Banking</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" onclick="showForm('Banking Services')">Banking Services</a></li>
-                            <li><a href="#" onclick="showForm('Loan Assistance')">Loan Assistance</a></li>
-                            <li><a href="#" onclick="showForm('Financial Planning')">Financial Planning</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="dropdown-toggle">Insurance</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" onclick="showForm('Life Insurance')">Life Insurance</a></li>
-                            <li><a href="#" onclick="showForm('Health Insurance')">Health Insurance</a></li>
-                            <li><a href="#" onclick="showForm('Business Insurance')">Business Insurance</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" class="dropdown-toggle">Internship</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" onclick="showForm('Accounting Internship')">Accounting Internship</a></li>
-                            <li><a href="#" onclick="showForm('Tax Internship')">Tax Internship</a></li>
-                            <li><a href="#" onclick="showForm('Finance Internship')">Finance Internship</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo"><span>e</span>Auditoroffice</a>
+                <nav>
+                    <button class="hamburger"><i class="fas fa-bars"></i></button>
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li>
+                            <a href="#" class="dropdown-toggle">Income Tax</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" onclick="showForm('Income Tax Services')">Income Tax Services</a></li>
+                                <li><a href="#" onclick="showForm('Income Tax Returns Filings')">Income Tax Returns Filings</a></li>
+                                <li><a href="#" onclick="showForm('Form 15CA & Form 15CB')">Form 15CA & Form 15CB</a></li>
+                                <li><a href="#" onclick="showForm('NRI Income Tax Planning & Filing')">NRI Income Tax Planning & Filing</a></li>
+                                <li><a href="#" onclick="showForm('NSDL Services')">NSDL Services</a></li>
+                                <li><a href="#" onclick="showForm('PAN Application')">PAN Application</a></li>
+                                <li><a href="#" onclick="showForm('TAN Application')">TAN Application</a></li>
+                                <li><a href="#" onclick="showForm('Tax Deducted at Source')">Tax Deducted at Source</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle">GST</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" onclick="showForm('GST Registration')">GST Registration</a></li>
+                                <li><a href="#" onclick="showForm('GST Filing')">GST Filing</a></li>
+                                <li><a href="#" onclick="showForm('GST Consultation')">GST Consultation</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle">Banking</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" onclick="showForm('Banking Services')">Banking Services</a></li>
+                                <li><a href="#" onclick="showForm('Loan Assistance')">Loan Assistance</a></li>
+                                <li><a href="#" onclick="showForm('Financial Planning')">Financial Planning</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle">Insurance</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" onclick="showForm('Life Insurance')">Life Insurance</a></li>
+                                <li><a href="#" onclick="showForm('Health Insurance')">Health Insurance</a></li>
+                                <li><a href="#" onclick="showForm('Business Insurance')">Business Insurance</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle">Internship</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" onclick="showForm('Accounting Internship')">Accounting Internship</a></li>
+                                <li><a href="#" onclick="showForm('Tax Internship')">Tax Internship</a></li>
+                                <li><a href="#" onclick="showForm('Finance Internship')">Finance Internship</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobile-menu">
-    <button class="close-btn"><i class="fas fa-times"></i></button>
-    <ul>
-        <li>
-            <a href="#" class="dropdown-toggle">Income Tax</a>
-            <ul class="dropdown-menu">
-                <li><a href="#" onclick="showForm('Income Tax Services'); closeMobileMenu()">Income Tax Services</a></li>
-                <li><a href="#" onclick="showForm('Income Tax Returns Filings'); closeMobileMenu()">Income Tax Returns Filings</a></li>
-                <li><a href="#" onclick="showForm('Form 15CA & Form 15CB'); closeMobileMenu()">Form 15CA & Form 15CB</a></li>
-                <li><a href="#" onclick="showForm('NRI Income Tax Planning & Filing'); closeMobileMenu()">NRI Income Tax Planning & Filing</a></li>
-                <li><a href="#" onclick="showForm('NSDL Services'); closeMobileMenu()">NSDL Services</a></li>
-                <li><a href="#" onclick="showForm('PAN Application'); closeMobileMenu()">PAN Application</a></li>
-                <li><a href="#" onclick="showForm('TAN Application'); closeMobileMenu()">TAN Application</a></li>
-                <li><a href="#" onclick="showForm('Tax Deducted at Source'); closeMobileMenu()">Tax Deducted at Source</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#" class="dropdown-toggle">GST</a>
-            <ul class="dropdown-menu">
-                <li><a href="#" onclick="showForm('GST Registration'); closeMobileMenu()">GST Registration</a></li>
-                <li><a href="#" onclick="showForm('GST Filing'); closeMobileMenu()">GST Filing</a></li>
-                <li><a href="#" onclick="showForm('GST Consultation'); closeMobileMenu()">GST Consultation</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#" class="dropdown-toggle">Banking</a>
-            <ul class="dropdown-menu">
-                <li><a href="#" onclick="showForm('Banking Services'); closeMobileMenu()">Banking Services</a></li>
-                <li><a href="#" onclick="showForm('Loan Assistance'); closeMobileMenu()">Loan Assistance</a></li>
-                <li><a href="#" onclick="showForm('Financial Planning'); closeMobileMenu()">Financial Planning</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#" class="dropdown-toggle">Insurance</a>
-            <ul class="dropdown-menu">
-                <li><a href="#" onclick="showForm('Life Insurance'); closeMobileMenu()">Life Insurance</a></li>
-                <li><a href="#" onclick="showForm('Health Insurance'); closeMobileMenu()">Health Insurance</a></li>
-                <li><a href="#" onclick="showForm('Business Insurance'); closeMobileMenu()">Business Insurance</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#" class="dropdown-toggle">Internship</a>
-            <ul class="dropdown-menu">
-                <li><a href="#" onclick="showForm('Accounting Internship'); closeMobileMenu()">Accounting Internship</a></li>
-                <li><a href="#" onclick="showForm('Tax Internship'); closeMobileMenu()">Tax Internship</a></li>
-                <li><a href="#" onclick="showForm('Finance Internship'); closeMobileMenu()">Finance Internship</a></li>
-            </ul>
-        </li>
-        <li><a href="about-us.html">About Us</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</div>
-<div class="overlay" id="overlay"></div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="close-btn"><i class="fas fa-times"></i></button>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li>
+                <a href="#" class="dropdown-toggle">Income Tax</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showForm('Income Tax Services'); closeMobileMenu()">Income Tax Services</a></li>
+                    <li><a href="#" onclick="showForm('Income Tax Returns Filings'); closeMobileMenu()">Income Tax Returns Filings</a></li>
+                    <li><a href="#" onclick="showForm('Form 15CA & Form 15CB'); closeMobileMenu()">Form 15CA & Form 15CB</a></li>
+                    <li><a href="#" onclick="showForm('NRI Income Tax Planning & Filing'); closeMobileMenu()">NRI Income Tax Planning & Filing</a></li>
+                    <li><a href="#" onclick="showForm('NSDL Services'); closeMobileMenu()">NSDL Services</a></li>
+                    <li><a href="#" onclick="showForm('PAN Application'); closeMobileMenu()">PAN Application</a></li>
+                    <li><a href="#" onclick="showForm('TAN Application'); closeMobileMenu()">TAN Application</a></li>
+                    <li><a href="#" onclick="showForm('Tax Deducted at Source'); closeMobileMenu()">Tax Deducted at Source</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="dropdown-toggle">GST</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showForm('GST Registration'); closeMobileMenu()">GST Registration</a></li>
+                    <li><a href="#" onclick="showForm('GST Filing'); closeMobileMenu()">GST Filing</a></li>
+                    <li><a href="#" onclick="showForm('GST Consultation'); closeMobileMenu()">GST Consultation</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="dropdown-toggle">Banking</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showForm('Banking Services'); closeMobileMenu()">Banking Services</a></li>
+                    <li><a href="#" onclick="showForm('Loan Assistance'); closeMobileMenu()">Loan Assistance</a></li>
+                    <li><a href="#" onclick="showForm('Financial Planning'); closeMobileMenu()">Financial Planning</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="dropdown-toggle">Insurance</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showForm('Life Insurance'); closeMobileMenu()">Life Insurance</a></li>
+                    <li><a href="#" onclick="showForm('Health Insurance'); closeMobileMenu()">Health Insurance</a></li>
+                    <li><a href="#" onclick="showForm('Business Insurance'); closeMobileMenu()">Business Insurance</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="dropdown-toggle">Internship</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showForm('Accounting Internship'); closeMobileMenu()">Accounting Internship</a></li>
+                    <li><a href="#" onclick="showForm('Tax Internship'); closeMobileMenu()">Tax Internship</a></li>
+                    <li><a href="#" onclick="showForm('Finance Internship'); closeMobileMenu()">Finance Internship</a></li>
+                </ul>
+            </li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay"></div>
 
     <main>
         <!-- Hero Section -->
@@ -1199,16 +958,16 @@
         
                         <div class="stats-grid">
                             <div class="stat">
-                                <div class="stat-number">1.5K</div>
-                                <div class="stat-text">Business Registrations</div>
+                                <div class="stat-number">3K+</div>
+                                <div class="stat-text">Business Clients</div>
                             </div>
                             <div class="stat">
-                                <div class="stat-number">10K</div>
-                                <div class="stat-text">IT filings per annum</div>
+                                <div class="stat-number">10K+</div>
+                                <div class="stat-text">Salaried Employees</div>
                             </div>
                             <div class="stat">
-                                <div class="stat-number">50K</div>
-                                <div class="stat-text">Happy Customers</div>
+                                <div class="stat-number">150+</div>
+                                <div class="stat-text">Educational Institution</div>
                             </div>
                         </div>
         
@@ -1271,24 +1030,6 @@
                     <div class="service-card">
                         <div class="service-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
-                                <line x1="9" y1="1" x2="9" y2="4"></line>
-                                <line x1="15" y1="1" x2="15" y2="4"></line>
-                                <line x1="9" y1="20" x2="9" y2="23"></line>
-                                <line x1="15" y1="20" x2="15" y2="23"></line>
-                                <line x1="20" y1="9" x2="23" y2="9"></line>
-                                <line x1="20" y1="14" x2="23" y2="14"></line>
-                                <line x1="1" y1="9" x2="4" y2="9"></line>
-                                <line x1="1" y1="14" x2="4" y2="14"></line>
-                            </svg>
-                        </div>
-                        <h3>Business Registration</h3>
-                        <p>Register your business as Proprietorship, Partnership, LLP, or Private Limited Company with ease.</p>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                                 <polyline points="14 2 14 8 20 8"></polyline>
                                 <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -1296,8 +1037,8 @@
                                 <polyline points="10 9 9 9 8 9"></polyline>
                             </svg>
                         </div>
-                        <h3>GST Registration & Filing</h3>
-                        <p>Get your GST registration done and file your returns on time with our expert assistance.</p>
+                        <h3>Income Tax</h3>
+                        <p>File income tax returns, plan for NRIs, and manage PAN/TAN applications with our expert tax services.</p>                            
                     </div>
                     
                     <div class="service-card">
@@ -1308,8 +1049,24 @@
                                 <line x1="6" y1="20" x2="6" y2="16"></line>
                             </svg>
                         </div>
-                        <h3>Income Tax Filing</h3>
-                        <p>File your income tax returns accurately and on time with our professional tax experts.</p>
+                        <h3>GST</h3>
+                        <p>Simplify GST registration, filing, and compliance with our professional guidance and consultation services.</p>                          
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                                <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                                <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                                <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                                <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                                <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+                            </svg>
+                        </div>
+                        <h3>Banking</h3>
+                        <p>Access banking services, loan assistance, and personalized financial planning to support your business.</p>
                     </div>
                     
                     <div class="service-card">
@@ -1318,19 +1075,8 @@
                                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                             </svg>
                         </div>
-                        <h3>Trademark Registration</h3>
-                        <p>Protect your brand identity with our trademark registration services.</p>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <polyline points="12 6 12 12 16 14"></polyline>
-                            </svg>
-                        </div>
-                        <h3>Accounting Services</h3>
-                        <p>Maintain accurate books of accounts with our professional accounting services.</p>
+                        <h3>Insurance</h3>
+                        <p>Secure your future with life, health, and business insurance tailored to your needs.</p>   
                     </div>
                     
                     <div class="service-card">
@@ -1343,7 +1089,25 @@
                             </svg>
                         </div>
                         <h3>Business Advisory</h3>
-                        <p>Get expert advice on business growth, compliance, and financial planning.</p>
+                        <p>Get expert advice on business growth, compliance, and financial planning to achieve success.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                                <line x1="9" y1="1" x2="9" y2="4"></line>
+                                <line x1="15" y1="1" x2="15" y2="4"></line>
+                                <line x1="9" y1="20" x2="9" y2="23"></line>
+                                <line x1="15" y1="20" x2="15" y2="23"></line>
+                                <line x1="20" y1="9" x2="23" y2="9"></line>
+                                <line x1="20" y1="14" x2="23" y2="14"></line>
+                                <line x1="1" y1="9" x2="4" y2="9"></line>
+                                <line x1="1" y1="14" x2="4" y2="14"></line>
+                            </svg>
+                        </div>
+                        <h3>Internship</h3>
+                        <p>Explore internship opportunities, gain hands-on experience, and kickstart your career with the right guidance.</p> 
                     </div>
                 </div>
             </div>
@@ -1514,93 +1278,27 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
-                    <h3>eAuditor Office</h3>
-                    <p>Enabling entrepreneurs to stay legally compliant with comprehensive business services.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Twitter">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="footer-column">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="services/company-registration.html">Company Registration</a></li>
-                        <li><a href="services/gst-registration.html">GST Registration</a></li>
-                        <li><a href="services/income-tax-filing.html">Income Tax Filing</a></li>
-                        <li><a href="services/trademark-registration.html">Trademark Registration</a></li>
-                        <li><a href="services/accounting.html">Accounting Services</a></li>
-                        <li><a href="services.html">View All Services</a></li>
-                    </ul>
+                    <h3>About Us</h3>
+                    <p>eAuditoroffice provides professional accounting, tax, and business management services to help your business thrive.</p>
                 </div>
 
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="team.html">Our Team</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="testimonials.html">Testimonials</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
                     <h3>Contact Us</h3>
-                    <ul class="contact-info">
-                        <li class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="contact-icon">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                            <span>123 Business Avenue, Tech Park, Bangalore - 560001</span>
-                        </li>
-                        <li class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="contact-icon">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                            </svg>
-                            <span>+91 98765 43210</span>
-                        </li>
-                        <li class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="contact-icon">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-2-.9-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                            <span>info@eauditoroffice.com</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>© 2025 eAuditor Office. All rights reserved.</p>
-                <div class="footer-legal">
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="terms-of-services.html">Terms of Service</a>
-                    <a href="refund-policy.html">Refund Policy</a>
+                    <div class="contact-info">
+                        <p>92, Angammal Colony,<br>TVS Bus-top Near Pothys,<br>Salem - 636 009</p>
+                        <p>98427 44500<br>98428 44500<br>0427-4043500</p>
+                        <p>auditorpaulraj@gmail.com</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1608,38 +1306,58 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Mobile Menu Toggle
-            const mobileMenuButton = document.querySelector('.mobile-menu-button');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('active');
-                    
-                    // Toggle menu icon (hamburger to X)
-                    const menuIcon = this.querySelector('.menu-icon');
-                    if (menuIcon) {
-                        menuIcon.classList.toggle('active');
-                    }
+            // Mobile Menu Handling
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeBtn = mobileMenu.querySelector('.close-btn');
+            const overlay = document.getElementById('overlay');
+            const dropdownToggles = mobileMenu.querySelectorAll('.dropdown-toggle');
+
+            function openMobileMenu() {
+                mobileMenu.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+                // Close all dropdowns
+                dropdownToggles.forEach(toggle => {
+                    toggle.classList.remove('active');
+                    toggle.nextElementSibling.style.display = 'none';
                 });
             }
-            
-            // Mobile Dropdown Toggles
-            const mobileDropdownButtons = document.querySelectorAll('.mobile-dropdown-button');
-            
-            mobileDropdownButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    this.classList.toggle('active');
-                    
-                    // Find the next sibling which is the dropdown content
-                    const dropdownContent = this.nextElementSibling;
-                    if (dropdownContent && dropdownContent.classList.contains('mobile-dropdown-content')) {
-                        dropdownContent.classList.toggle('active');
+
+            hamburger.addEventListener('click', openMobileMenu);
+            closeBtn.addEventListener('click', closeMobileMenu);
+            overlay.addEventListener('click', closeMobileMenu);
+
+            // Handle dropdowns in mobile menu
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const dropdownMenu = this.nextElementSibling;
+                    const isActive = this.classList.contains('active');
+
+                    // Close all other dropdowns
+                    dropdownToggles.forEach(otherToggle => {
+                        otherToggle.classList.remove('active');
+                        otherToggle.nextElementSibling.style.display = 'none';
+                    });
+
+                    // Toggle current dropdown
+                    if (!isActive) {
+                        this.classList.add('active');
+                        dropdownMenu.style.display = 'block';
+                    } else {
+                        this.classList.remove('active');
+                        dropdownMenu.style.display = 'none';
                     }
                 });
             });
-            
+
             // FAQ Accordion
             const faqQuestions = document.querySelectorAll('.faq-question');
             
@@ -1706,54 +1424,10 @@
                 // Update on window resize
                 window.addEventListener('resize', updateVisibleTestimonials);
             }
-            
-            // Process Steps Animation
-            const processSteps = document.querySelectorAll('.process-step');
-            
-            if (processSteps.length > 0) {
-                // Add animation classes with delay
-                processSteps.forEach((step, index) => {
-                    setTimeout(() => {
-                        step.classList.add('animate');
-                    }, index * 200);
-                });
-            }
-            
-            // Form Validation
-            const contactForm = document.querySelector('.contact-form');
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Simple validation
-                    let isValid = true;
-                    const requiredFields = this.querySelectorAll('input, textarea');
-                    
-                    requiredFields.forEach(field => {
-                        if (!field.value.trim()) {
-                            isValid = false;
-                            field.classList.add('error');
-                        } else {
-                            field.classList.remove('error');
-                        }
-                    });
-                    
-                    if (isValid) {
-                        // Form is valid, you can submit it or show success message
-                        alert('Thank you for your message. We will get back to you soon!');
-                        this.reset();
-                    } else {
-                        alert('Please fill in all required fields.');
-                    }
-                });
-            }
 
             // Service Form Display Function
             window.showForm = function(formName) {
-                // Placeholder for form display logic
                 alert(`Showing form for: ${formName}`);
-                // You can implement actual form display logic here
             };
         });
     </script>
