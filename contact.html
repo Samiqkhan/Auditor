@@ -53,6 +53,11 @@
             color: #2dd4bf;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -120,6 +125,85 @@
             display: block;
         }
 
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: #fff;
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu .close-btn {
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .mobile-menu ul {
+            flex-direction: column;
+            margin-top: 60px;
+        }
+
+        .mobile-menu ul li {
+            margin: 10px 0;
+        }
+
+        .mobile-menu ul li a {
+            font-size: 18px;
+            padding: 15px;
+            display: block;
+            color: #333;
+        }
+
+        .mobile-menu .dropdown-menu {
+            position: static;
+            box-shadow: none;
+            display: none;
+            background-color: #f8f9fa;
+            min-width: 100%;
+            margin-left: 20px;
+        }
+
+        .mobile-menu .dropdown-menu li a {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+
+        .mobile-menu .dropdown-toggle::after {
+            content: "▼";
+            float: right;
+            margin-top: 5px;
+        }
+
+        .mobile-menu .dropdown-toggle.active::after {
+            content: "▲";
+        }
 
         /* Page Title Section */
         .page-title {
@@ -511,11 +595,13 @@
 </head>
 <body>
      <!-- Header -->
+    <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
                 <a href="index.html" class="logo"><span>e</span>Auditoroffice</a>
                 <nav>
+                    <button class="hamburger"><i class="fas fa-bars"></i></button>
                     <ul>
                         <li>
                             <a href="#" class="dropdown-toggle">Income Tax</a>
@@ -569,6 +655,61 @@
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="close-btn"><i class="fas fa-times"></i></button>
+        <ul>
+            <li>
+                <a href="#" class="dropdown-toggle">Income Tax</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showForm('Income Tax Services'); closeMobileMenu()">Income Tax Services</a></li>
+                    <li><a href="#" onclick="showForm('Income Tax Returns Filings'); closeMobileMenu()">Income Tax Returns Filings</a></li>
+                    <li><a href="#" onclick="showForm('Form 15CA & Form 15CB'); closeMobileMenu()">Form 15CA & Form 15CB</a></li>
+                    <li><a href="#" onclick="showForm('NRI Income Tax Planning & Filing'); closeMobileMenu()">NRI Income Tax Planning & Filing</a></li>
+                    <li><a href="#" onclick="showForm('NSDL Services'); closeMobileMenu()">NSDL Services</a></li>
+                    <li><a href="#" onclick="showForm('PAN Application'); closeMobileMenu()">PAN Application</a></li>
+                    <li><a href="#" onclick="showForm('TAN Application'); closeMobileMenu()">TAN Application</a></li>
+                    <li><a href="#" onclick="showForm('Tax Deducted at Source'); closeMobileMenu()">Tax Deducted at Source</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="dropdown-toggle">GST</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showForm('GST Registration'); closeMobileMenu()">GST Registration</a></li>
+                    <li><a href="#" onclick="showForm('GST Filing'); closeMobileMenu()">GST Filing</a></li>
+                    <li><a href="#" onclick="showForm('GST Consultation'); closeMobileMenu()">GST Consultation</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="dropdown-toggle">Banking</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showForm('Banking Services'); closeMobileMenu()">Banking Services</a></li>
+                    <li><a href="#" onclick="showForm('Loan Assistance'); closeMobileMenu()">Loan Assistance</a></li>
+                    <li><a href="#" onclick="showForm('Financial Planning'); closeMobileMenu()">Financial Planning</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="dropdown-toggle">Insurance</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showForm('Life Insurance'); closeMobileMenu()">Life Insurance</a></li>
+                    <li><a href="#" onclick="showForm('Health Insurance'); closeMobileMenu()">Health Insurance</a></li>
+                    <li><a href="#" onclick="showForm('Business Insurance'); closeMobileMenu()">Business Insurance</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="dropdown-toggle">Internship</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showForm('Accounting Internship'); closeMobileMenu()">Accounting Internship</a></li>
+                    <li><a href="#" onclick="showForm('Tax Internship'); closeMobileMenu()">Tax Internship</a></li>
+                    <li><a href="#" onclick="showForm('Finance Internship'); closeMobileMenu()">Finance Internship</a></li>
+                </ul>
+            </li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay"></div>
 
     <!-- Page Title -->
     <section class="page-title">
