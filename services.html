@@ -53,6 +53,11 @@
             color: #2dd4bf;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -120,6 +125,103 @@
             display: block;
         }
 
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100%;
+            background-color: #fff;
+            z-index: 1000;
+            transition: right 0.3s ease;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu .close-btn {
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .mobile-menu ul {
+            flex-direction: column;
+            margin-top: 60px;
+        }
+
+        .mobile-menu ul li {
+            margin: 10px 0;
+        }
+
+        .mobile-menu ul li a {
+            font-size: 18px;
+            padding: 15px;
+            display: block;
+            color: #333;
+        }
+
+        .mobile-menu .dropdown-menu {
+            position: static;
+            box-shadow: none;
+            display: none;
+            background-color: #f8f9fa;
+            min-width: 100%;
+            margin-left: 20px;
+        }
+
+        .mobile-menu .dropdown-menu li a {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+
+        .mobile-menu .dropdown-toggle::after {
+            content: "▼";
+            float: right;
+            margin-top: 5px;
+        }
+
+        .mobile-menu .dropdown-toggle.active::after {
+            content: "▲";
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Rest of the existing styles remain unchanged */
         .page-title {
             background-color: #f8f9fa;
             padding: 60px 0;
@@ -500,7 +602,6 @@
             max-height: 1000px;
         }
 
-        /* Form Section Styles */
         .form-section {
             display: none;
             padding: 60px 0;
@@ -714,37 +815,21 @@
 
         @media (max-width: 768px) {
             .header-content {
-                flex-direction: column;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
             }
 
             .logo {
-                margin-bottom: 15px;
+                margin-bottom: 0;
             }
 
             nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            nav ul li {
-                margin: 0 10px 10px;
-            }
-
-            .dropdown-menu {
-                position: static;
-                box-shadow: none;
                 display: none;
-                min-width: auto;
-                margin-top: 10px;
-                background-color: #f8f9fa;
             }
 
-            .page-title h1 {
-                font-size: 32px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
+            .hamburger {
+                display: block;
             }
 
             .process-steps {
@@ -765,6 +850,10 @@
             .process-step:last-child {
                 margin-bottom: 0;
             }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -773,8 +862,9 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo"><span>e</span>Auditoroffice</a>
+                <a href="index.html" class="logo"><span>e</span>Samiq</a>
                 <nav>
+                    <button class="hamburger"><i class="fas fa-bars"></i></button>
                     <ul>
                         <li>
                             <a href="#" class="dropdown-toggle">Income Tax</a>
@@ -828,6 +918,61 @@
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="close-btn"><i class="fas fa-times"></i></button>
+        <ul>
+            <li>
+                <a href="#" class="dropdown-toggle">Income Tax</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showForm('Income Tax Services'); closeMobileMenu()">Income Tax Services</a></li>
+                    <li><a href="#" onclick="showForm('Income Tax Returns Filings'); closeMobileMenu()">Income Tax Returns Filings</a></li>
+                    <li><a href="#" onclick="showForm('Form 15CA & Form 15CB'); closeMobileMenu()">Form 15CA & Form 15CB</a></li>
+                    <li><a href="#" onclick="showForm('NRI Income Tax Planning & Filing'); closeMobileMenu()">NRI Income Tax Planning & Filing</a></li>
+                    <li><a href="#" onclick="showForm('NSDL Services'); closeMobileMenu()">NSDL Services</a></li>
+                    <li><a href="#" onclick="showForm('PAN Application'); closeMobileMenu()">PAN Application</a></li>
+                    <li><a href="#" onclick="showForm('TAN Application'); closeMobileMenu()">TAN Application</a></li>
+                    <li><a href="#" onclick="showForm('Tax Deducted at Source'); closeMobileMenu()">Tax Deducted at Source</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="dropdown-toggle">GST</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showForm('GST Registration'); closeMobileMenu()">GST Registration</a></li>
+                    <li><a href="#" onclick="showForm('GST Filing'); closeMobileMenu()">GST Filing</a></li>
+                    <li><a href="#" onclick="showForm('GST Consultation'); closeMobileMenu()">GST Consultation</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="dropdown-toggle">Banking</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showForm('Banking Services'); closeMobileMenu()">Banking Services</a></li>
+                    <li><a href="#" onclick="showForm('Loan Assistance'); closeMobileMenu()">Loan Assistance</a></li>
+                    <li><a href="#" onclick="showForm('Financial Planning'); closeMobileMenu()">Financial Planning</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="dropdown-toggle">Insurance</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showForm('Life Insurance'); closeMobileMenu()">Life Insurance</a></li>
+                    <li><a href="#" onclick="showForm('Health Insurance'); closeMobileMenu()">Health Insurance</a></li>
+                    <li><a href="#" onclick="showForm('Business Insurance'); closeMobileMenu()">Business Insurance</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="dropdown-toggle">Internship</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showForm('Accounting Internship'); closeMobileMenu()">Accounting Internship</a></li>
+                    <li><a href="#" onclick="showForm('Tax Internship'); closeMobileMenu()">Tax Internship</a></li>
+                    <li><a href="#" onclick="showForm('Finance Internship'); closeMobileMenu()">Finance Internship</a></li>
+                </ul>
+            </li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay"></div>
 
     <!-- Main Content -->
     <div id="main-content">
@@ -1465,27 +1610,58 @@
             submitFormData();
         });
 
-        // Mobile menu toggle and FAQ handling
+        // Mobile menu handling
         document.addEventListener('DOMContentLoaded', function() {
-            if (window.innerWidth <= 768) {
-                const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-                
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeBtn = mobileMenu.querySelector('.close-btn');
+            const overlay = document.getElementById('overlay');
+            const dropdownToggles = mobileMenu.querySelectorAll('.dropdown-toggle');
+
+            function openMobileMenu() {
+                mobileMenu.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+                // Close all dropdowns
                 dropdownToggles.forEach(toggle => {
-                    toggle.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const dropdownMenu = this.nextElementSibling;
-                        
-                        if (dropdownMenu.style.display === 'block') {
-                            dropdownMenu.style.display = 'none';
-                        } else {
-                            document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                                menu.style.display = 'none';
-                            });
-                            dropdownMenu.style.display = 'block';
-                        }
-                    });
+                    toggle.classList.remove('active');
+                    toggle.nextElementSibling.style.display = 'none';
                 });
             }
+
+            hamburger.addEventListener('click', openMobileMenu);
+            closeBtn.addEventListener('click', closeMobileMenu);
+            overlay.addEventListener('click', closeMobileMenu);
+
+            // Handle dropdowns in mobile menu
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const dropdownMenu = this.nextElementSibling;
+                    const isActive = this.classList.contains('active');
+
+                    // Close all other dropdowns
+                    dropdownToggles.forEach(otherToggle => {
+                        otherToggle.classList.remove('active');
+                        otherToggle.nextElementSibling.style.display = 'none';
+                    });
+
+                    // Toggle current dropdown
+                    if (!isActive) {
+                        this.classList.add('active');
+                        dropdownMenu.style.display = 'block';
+                    } else {
+                        this.classList.remove('active');
+                        dropdownMenu.style.display = 'none';
+                    }
+                });
+            });
 
             // FAQ toggle
             const faqQuestions = document.querySelectorAll('.faq-question');
